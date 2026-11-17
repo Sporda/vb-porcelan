@@ -1,0 +1,1643 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bílé zlato – návrh 4 · Malina</title>
+<meta name="description" content="Návrh designu e-shopu s originálním porcelánem Villeroy & Boch – varianta Malina.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Gilda+Display&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Návrh 4 – „Malina“
+   Zdrojová paleta (colorhunt): #7c0e44 · #aa5e7a · #d49a9a · #f2dace
+   ========================================================= */
+:root{
+  --bg:#faf3ee;          /* stránka – světlejší pudrová */
+  --surface:#f2dace;     /* pásy a plochy (zdroj) */
+  --card:#fffaf7;        /* karty, pole */
+  --soft:#f6e7de;        /* podklad obrázků, hover */
+  --line:#ead2c6;
+  --line-2:#ddb9aa;
+  --ink:#2e0b1d;         /* text 16:1 */
+  --muted:#6a4253;       /* 7,6:1 */
+  --dim:#7d5566;         /* 5,7:1 */
+  --primary:#7c0e44;     /* malina (zdroj) – tlačítka, ceny */
+  --primary-h:#66093a;
+  --deep:#4b0727;        /* tmavé pásy, patička */
+  --mauve:#aa5e7a;       /* zdroj – jen velký text a detaily (4,2:1) */
+  --mauve-ink:#8b4561;   /* malý akcentní text (6,1:1) */
+  --rose:#d49a9a;        /* zdroj – dekorativní linky a plochy */
+  --rose-l:#e8b9b4;      /* akcent na tmavém (8,9:1) */
+  --on-deep:#ecd3ca;     /* běžný text na tmavém */
+  --gold:#b48d5c;        /* jen dekor – hvězdičky */
+  --badge-bg:#f6dfe2;
+  --ok:#3d6b4a;
+  --on-primary:#fff7f2;
+
+  --display:"Gilda Display", "Times New Roman", serif;
+  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --wrap:1320px;
+  --gut:clamp(16px, 4vw, 48px);
+  --sec:clamp(72px, 9vw, 128px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --shadow:0 1px 2px rgba(46,11,29,.05), 0 18px 40px -22px rgba(46,11,29,.30);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.center{text-align:center}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;line-height:1.1;margin:0}
+.h1{font-size:clamp(42px,5.2vw,76px);line-height:1.04}
+.h2{font-size:clamp(32px,3.6vw,52px)}
+.acc{font-style:normal;color:var(--mauve)}
+.eyebrow{margin:0;font:600 11.5px/1.3 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mauve-ink)}
+.eyebrow--orn{display:inline-flex;align-items:center;gap:14px}
+.eyebrow--orn::before,.eyebrow--orn::after{content:"";width:28px;height:1px;background:var(--rose)}
+.lead{font-size:18px;line-height:1.7;color:var(--muted)}
+.u{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-2)}
+
+.ic{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic-star{fill:currentColor;stroke:none;width:14px;height:14px}
+.ic-lg{width:28px;height:28px}
+
+/* ---------- tlačítka ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 30px;border-radius:999px;font:600 12.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transition:background-color .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease),transform .15s var(--ease)}
+.btn:active{transform:scale(.98)}
+.btn .ic{width:18px;height:18px}
+.btn-primary{background:var(--primary);color:var(--on-primary)}
+.btn-primary:hover{background:var(--primary-h)}
+.btn-ghost{border:1px solid var(--primary);color:var(--primary)}
+.btn-ghost:hover{background:var(--primary);color:var(--on-primary)}
+.btn-sm{height:42px;padding:0 18px;font-size:11.5px}
+.link-arrow{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--primary);padding:6px 0;border-bottom:1px solid currentColor}
+.link-arrow .ic{width:16px;height:16px;transition:transform .2s var(--ease)}
+@media (hover:hover){.link-arrow:hover .ic{transform:translateX(3px)}}
+
+/* ---------- oblouky (signature) ---------- */
+.arch-img{position:relative;overflow:hidden;border-radius:999px 999px 0 0;background:var(--soft);aspect-ratio:3/4}
+.arch-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.arch-frame{padding:10px;border:1px solid var(--rose);border-bottom:0;border-radius:999px 999px 0 0}
+@media (hover:hover){a:hover .arch-img img{transform:scale(1.04)}}
+
+/* ---------- oznámení + hlavička ---------- */
+.ann{background:var(--deep);color:var(--on-deep);font:500 12.5px/1 var(--sans);letter-spacing:.05em}
+.ann .wrap{display:flex;justify-content:center;align-items:center;gap:22px;height:38px}
+.ann span{display:inline-flex;align-items:center;gap:8px}
+.ann .ic{width:15px;height:15px;color:var(--rose-l)}
+.ann i{width:4px;height:4px;border-radius:50%;background:var(--rose);display:inline-block}
+
+.hdr{position:sticky;top:0;z-index:60;background:rgba(250,243,238,.96);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line)}
+.hdr-main{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:96px;transition:height .25s var(--ease)}
+.hdr-left,.hdr-right{display:flex;align-items:center;gap:4px}
+.hdr-right{justify-content:flex-end}
+.icon-btn{position:relative;width:44px;height:44px;display:inline-grid;place-items:center;border-radius:50%;color:var(--ink);transition:background-color .2s}
+.icon-btn:hover{background:var(--soft)}
+.icon-btn--line{border:1px solid var(--line-2)}
+.icon-btn.on .ic,.pcard-fav.on .ic{fill:var(--primary);stroke:var(--primary)}
+.hdr-pill{display:inline-flex;align-items:center;gap:9px;height:44px;padding:0 14px;border-radius:999px;font:500 14px/1 var(--sans);transition:background-color .2s}
+.hdr-pill:hover{background:var(--soft)}
+.hdr-pill .ic{width:19px;height:19px}
+.cart-count{position:absolute;top:3px;right:1px;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:var(--primary);color:var(--on-primary);font:700 10.5px/19px var(--sans);text-align:center}
+.wordmark{display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center}
+.wordmark-mark{width:20px;height:24px;color:var(--rose);stroke-width:1.3}
+.wordmark-name{font:400 34px/1 var(--display);letter-spacing:.01em;color:var(--ink)}
+.wordmark-name span{color:var(--mauve)}
+.wordmark-tag{font:600 9.5px/1 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--muted);padding-left:.34em}
+.hdr.is-scrolled .hdr-main{height:72px}
+.hdr.is-scrolled .wordmark-mark{display:none}
+
+.hdr-nav{border-top:1px solid var(--line)}
+.hdr-nav ul{display:flex;justify-content:center;align-items:center;gap:clamp(18px,2.4vw,38px);list-style:none;margin:0;padding:0;height:52px}
+.hdr-nav a{position:relative;display:inline-flex;align-items:center;gap:7px;padding:8px 0;font:500 14px/1 var(--sans);letter-spacing:.03em}
+.hdr-nav a::after{content:"";position:absolute;left:50%;right:50%;bottom:0;height:1px;background:var(--primary);transition:left .2s var(--ease),right .2s var(--ease)}
+.hdr-nav a:hover::after,.hdr-nav a[aria-current="true"]::after{left:0;right:0}
+.hdr-nav .is-gift{color:var(--primary)}
+.hdr-nav .is-gift .ic{width:16px;height:16px}
+.hdr-nav .is-sale{color:var(--mauve-ink)}
+.only-m{display:none!important}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(40px,5vw,72px) 0 clamp(64px,7vw,104px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.32fr) minmax(0,1fr);gap:clamp(28px,4.4vw,72px);align-items:center}
+.hero-side{position:relative;margin:0}
+.hero-side .arch-img{aspect-ratio:3/4.15}
+.hero-side .arch-frame{position:relative}
+.hero-side figcaption{margin-top:18px;text-align:center;font-size:13.5px;color:var(--muted)}
+.hero-side figcaption .eyebrow{display:block;margin-bottom:6px}
+.hero-side figcaption a{border-bottom:1px solid var(--line-2)}
+.hero-side figcaption a:hover{color:var(--primary);border-color:var(--primary)}
+.hero-copy{display:flex;flex-direction:column;align-items:center;text-align:center}
+.hero-copy .h1{margin:24px 0 24px;max-width:11.5ch}
+.hero-copy .lead{max-width:42ch;margin:0}
+.hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
+.hero-facts{display:grid;grid-template-columns:repeat(3,1fr);width:100%;max-width:500px;list-style:none;margin:46px 0 0;padding:26px 0 0;border-top:1px solid var(--line)}
+.hero-facts li{padding:0 10px}
+.hero-facts li+li{border-left:1px solid var(--line)}
+.hero-facts b{display:block;font:400 30px/1 var(--display);color:var(--primary)}
+.hero-facts span{display:block;margin-top:9px;font-size:12.5px;line-height:1.4;color:var(--muted)}
+.seal{position:absolute;bottom:14%;width:120px;height:120px;border-radius:50%;background:var(--card);border:1px solid var(--rose);display:grid;place-content:center;justify-items:center;text-align:center;box-shadow:var(--shadow);z-index:2}
+.seal::before{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid var(--line)}
+.seal small{font:600 9px/1.25 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mauve-ink)}
+.seal b{font:400 30px/1 var(--display);color:var(--primary);margin:5px 0 4px}
+.seal .ic{width:26px;height:26px;color:var(--primary);margin:2px 0 6px}
+.hero-side--l .seal{right:-38px}
+.hero-side--r .seal{left:-38px}
+
+/* ---------- výhody ---------- */
+.usp{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.usp-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;margin:0 auto;padding-top:38px;padding-bottom:38px}
+.usp-list li{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px;padding:0 22px;text-align:center}
+.usp-list li+li::before{content:"";position:absolute;left:0;top:12%;bottom:12%;width:1px;background:var(--line)}
+.usp-ic{width:54px;height:54px;margin-bottom:10px;border-radius:50%;border:1px solid var(--rose);display:grid;place-items:center;color:var(--primary)}
+.usp-list strong{font:600 15px/1.35 var(--sans)}
+.usp-list li>span:last-child{font-size:13.5px;line-height:1.5;color:var(--muted)}
+
+/* ---------- sekce ---------- */
+.sec{padding:var(--sec) 0}
+.sec-head{display:flex;flex-direction:column;align-items:center;gap:16px;max-width:740px;margin:0 auto clamp(40px,5vw,64px);text-align:center}
+.sec-sub{margin:0;max-width:52ch;font-size:17px;color:var(--muted)}
+
+/* příležitosti */
+.occ-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(16px,2vw,28px);list-style:none;margin:0;padding:0}
+.occ{display:flex;flex-direction:column;align-items:center;text-align:center}
+.occ .arch-img{width:100%;aspect-ratio:3/4.3}
+.occ h3{margin:22px 0 6px;font-size:27px}
+.occ p{margin:0;font-size:14px;color:var(--muted)}
+.occ .link-arrow{margin-top:14px;border-bottom-color:transparent}
+.occ:hover .link-arrow{border-bottom-color:currentColor}
+.occ--price .arch-img{background:var(--primary)}
+.occ-badge{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);background:var(--card);color:var(--primary);font:600 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:8px 13px;border-radius:999px;white-space:nowrap}
+
+/* kategorie */
+.cat-row{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);list-style:none;margin:0;padding:0}
+.cat{display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center}
+.cat .arch-img{width:100%;margin-bottom:14px}
+.cat-name{font:400 19px/1.2 var(--display)}
+.cat-n{font-size:12.5px;color:var(--dim)}
+.cat--sale .arch-img{display:grid;place-items:center;background:var(--primary);color:var(--on-primary)}
+.cat--sale .arch-img b{font:400 34px/1 var(--display)}
+.cat--sale .arch-img small{display:block;margin-top:8px;font:600 9.5px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--rose-l)}
+.cat--sale .cat-name{color:var(--primary)}
+
+/* kolekce */
+.coll-band{background:var(--surface)}
+.coll-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,44px);list-style:none;margin:0;padding:0}
+.coll{display:flex;flex-direction:column;align-items:center;text-align:center}
+.coll .arch-frame{width:100%;border-color:var(--rose)}
+.coll .eyebrow{margin-top:24px}
+.coll h3{margin:10px 0 8px;font-size:clamp(26px,2.4vw,32px)}
+.coll-desc{margin:0;max-width:28ch;font-size:14.5px;color:var(--muted)}
+.coll-from{margin:16px 0 0;font:600 14px/1 var(--sans);color:var(--primary)}
+
+/* produktové karty */
+.pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:52px clamp(16px,2.2vw,30px)}
+.pcard{position:relative;display:flex;flex-direction:column;text-align:center}
+.pcard-media{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:var(--soft);border-radius:50% 50% 6px 6px / 30% 30% 6px 6px}
+.pcard-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+@media (hover:hover){.pcard:hover .pcard-media img{transform:scale(1.045)}}
+.pcard-tag{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);background:var(--card);color:var(--primary);font:600 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 10px -4px rgba(46,11,29,.25)}
+.pcard-fav{position:absolute;top:2px;right:2px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--muted);background:var(--bg);border:1px solid var(--line);transition:color .2s,border-color .2s}
+.pcard-fav .ic{width:17px;height:17px}
+.pcard-fav:hover{color:var(--primary);border-color:var(--rose)}
+.pcard-body{display:flex;flex:1;flex-direction:column;align-items:center;gap:6px;padding:20px 6px 0}
+.pcard-coll{margin:0;font:600 10.5px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mauve-ink)}
+.pcard-name{margin:0;max-width:24ch;font:400 20px/1.25 var(--display)}
+.pcard-name a{transition:color .2s}
+.pcard-name a:hover{color:var(--primary)}
+.price{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:4px 10px;margin:6px 0 0}
+.price-now{font:600 17px/1 var(--sans);color:var(--ink)}
+.price-rrp{font-size:13.5px;color:var(--dim)}
+.save{display:inline-block;padding:5px 9px;border-radius:999px;background:var(--badge-bg);color:var(--primary);font:700 11.5px/1 var(--sans);letter-spacing:.02em}
+.pcard-foot{margin-top:auto;padding-top:16px}
+.pcard-add{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border:1px solid var(--line-2);border-radius:999px;color:var(--primary);font:600 11.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;transition:background-color .2s,border-color .2s,color .2s}
+.pcard-add .ic{width:16px;height:16px}
+.pcard-add:hover{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+
+.tabs-pill{display:flex;gap:4px;width:max-content;max-width:100%;margin:-20px auto 48px;padding:5px;border:1px solid var(--line);border-radius:999px;background:var(--card);overflow-x:auto}
+.tabs-pill button{height:40px;padding:0 20px;border-radius:999px;font:500 14px/1 var(--sans);color:var(--muted);white-space:nowrap;transition:background-color .2s,color .2s}
+.tabs-pill button:hover{color:var(--ink)}
+.tabs-pill button[aria-selected="true"]{background:var(--primary);color:var(--on-primary)}
+.best .center{margin-top:56px}
+
+/* dárkové balení */
+.gw-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(48px,8vw,128px);align-items:center;max-width:1160px}
+.gw-media{position:relative;justify-self:center;width:100%;max-width:440px;margin:0}
+.gw-media .arch-img{aspect-ratio:4/5}
+.gw-round{position:absolute;right:-56px;bottom:-36px;width:172px;height:172px;border-radius:50%;overflow:hidden;border:8px solid var(--bg);background:var(--soft)}
+.gw-round img{width:100%;height:100%;object-fit:cover}
+.gw-copy .h2{margin:16px 0 20px}
+.gw-copy .lead{margin:0;max-width:46ch}
+.checks{display:grid;gap:14px;list-style:none;margin:30px 0 38px;padding:0}
+.checks li{display:flex;align-items:center;gap:14px;font-weight:500}
+.checks .ck{width:30px;height:30px;border-radius:50%;background:var(--badge-bg);color:var(--primary);display:grid;place-items:center;flex:none}
+.checks .ic{width:15px;height:15px;stroke-width:2}
+
+/* proč levně */
+.why{position:relative;overflow:hidden;background:var(--deep);color:var(--on-deep)}
+.why::before{content:"";position:absolute;left:50%;top:clamp(36px,5vw,56px);width:min(700px,88vw);height:380px;transform:translateX(-50%);border:1px solid rgba(212,154,154,.32);border-bottom:0;border-radius:999px 999px 0 0;pointer-events:none;-webkit-mask-image:linear-gradient(#000 40%,transparent 92%);mask-image:linear-gradient(#000 40%,transparent 92%)}
+.why .wrap{position:relative}
+.why .eyebrow{color:var(--rose-l)}
+.why .eyebrow--orn::before,.why .eyebrow--orn::after{background:rgba(212,154,154,.6)}
+.why .h2{color:var(--on-primary)}
+.why .acc{color:var(--rose-l)}
+.why .sec-sub{color:var(--on-deep)}
+.why-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;margin:0;padding:0}
+.why-steps li{padding:6px clamp(16px,3vw,44px);text-align:center}
+.why-steps li+li{border-left:1px solid rgba(212,154,154,.28)}
+.why-n{font:400 42px/1 var(--display);color:var(--rose)}
+.why-steps h3{margin:18px 0 12px;font-size:25px;color:var(--on-primary)}
+.why-steps p{margin:0;font-size:15px;color:var(--on-deep)}
+.why-compare{display:grid;grid-template-columns:150px minmax(0,1fr);gap:34px;align-items:center;max-width:760px;margin:clamp(52px,6vw,84px) auto 0;padding:28px;border:1px solid rgba(212,154,154,.32);border-radius:28px;background:rgba(255,247,242,.05)}
+.wc-media{aspect-ratio:3/4}
+.wc-body .eyebrow{margin-bottom:8px}
+.wc-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:16px;font-size:15px}
+.wc-row s{color:var(--on-deep)}
+.wc-row--us b{font:400 32px/1 var(--display);color:var(--on-primary)}
+.wc-bar{height:8px;margin-top:10px;border-radius:4px;background:rgba(255,247,242,.1);overflow:hidden}
+.wc-bar span{display:block;height:100%;border-radius:4px;background:rgba(232,185,180,.42)}
+.wc-bar--us span{background:var(--rose-l)}
+.wc-save{margin:18px 0 0;font-weight:600;color:var(--rose-l)}
+
+/* recenze */
+.quote-in{max-width:880px;text-align:center}
+.stars{display:inline-flex;gap:3px;color:var(--gold)}
+.quote blockquote{margin:22px 0 0}
+.quote blockquote p{margin:0;font:400 clamp(26px,3vw,38px)/1.32 var(--display)}
+.quote-by{margin:26px 0 0;font-size:14px;letter-spacing:.04em;color:var(--muted)}
+
+/* newsletter */
+.news{padding:0 0 var(--sec)}
+.news-card{max-width:900px;margin:0 auto;padding:clamp(76px,9vw,124px) clamp(24px,6vw,96px) clamp(52px,6vw,76px);background:var(--surface);border-radius:450px 450px 32px 32px / 310px 310px 32px 32px;text-align:center}
+.news-card .h2{margin:16px auto 14px;max-width:19ch}
+.news-card .lead{margin:0 auto;max-width:44ch;font-size:16.5px}
+.news-form{display:flex;gap:10px;max-width:500px;margin:32px auto 0}
+.news-form input{flex:1;min-width:0;height:52px;padding:0 22px;border:1px solid var(--line-2);border-radius:999px;background:var(--card)}
+.news-form input:focus-visible{outline-offset:2px}
+.news-ok{margin:16px 0 0;font-weight:600;color:var(--ok)}
+
+/* patička */
+.ftr{background:var(--deep);color:var(--on-deep);padding:76px 0 120px}
+.ftr-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.15fr;gap:40px}
+.ftr .wordmark{align-items:flex-start;text-align:left}
+.ftr .wordmark-name{color:var(--on-primary)}
+.ftr .wordmark-name span{color:var(--rose-l)}
+.ftr .wordmark-tag{color:var(--rose-l);padding-left:0}
+.ftr-about{margin:20px 0 0;max-width:34ch;font-size:14.5px}
+.ftr h3{margin:0 0 18px;font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--rose-l)}
+.ftr ul{display:grid;gap:10px;list-style:none;margin:0;padding:0;font-size:14.5px}
+.ftr a:hover{color:var(--on-primary)}
+.ftr-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:60px;padding-top:24px;border-top:1px solid rgba(232,185,180,.22);font-size:12.5px;color:var(--on-deep)}
+
+/* ---------- kategorie ---------- */
+.cat-head{position:relative;padding:44px 0 34px;text-align:center;overflow:hidden}
+.cat-head::before{content:"";position:absolute;left:50%;top:22px;width:min(600px,92vw);height:300px;transform:translateX(-50%);border:1px solid var(--line-2);border-bottom:0;border-radius:999px 999px 0 0;pointer-events:none;-webkit-mask-image:linear-gradient(#000 35%,transparent 85%);mask-image:linear-gradient(#000 35%,transparent 85%)}
+.cat-head .wrap{position:relative}
+.crumbs ol{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;list-style:none;margin:0;padding:0;font-size:13px;color:var(--dim)}
+.crumbs li{display:inline-flex;align-items:center;gap:8px}
+.crumbs li+li::before{content:"›";color:var(--rose)}
+.crumbs a:hover{color:var(--primary)}
+.crumbs [aria-current]{color:var(--ink)}
+.cat-title{margin:30px 0 14px}
+.cat-intro{max-width:56ch;margin:0 auto;font-size:17px}
+.type-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:34px}
+.tchip{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border:1px solid var(--line-2);border-radius:999px;background:var(--card);font:500 14px/1 var(--sans);white-space:nowrap;transition:background-color .2s,border-color .2s,color .2s}
+.tchip small{font-size:12px;color:var(--dim)}
+.tchip:hover{border-color:var(--primary)}
+.tchip[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.tchip[aria-pressed="true"] small{color:var(--rose-l)}
+
+.cat-body{padding-bottom:var(--sec)}
+.fbar{position:relative;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fbar-left,.fbar-right{display:flex;align-items:center;gap:10px}
+.fbar-label{margin-right:4px;font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.fdd{position:relative}
+.fdd-btn,.fbtn-m{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 15px 0 18px;border:1px solid var(--line-2);border-radius:999px;background:var(--card);font:500 14px/1 var(--sans);transition:border-color .2s}
+.fdd-btn:hover,.fdd.open .fdd-btn{border-color:var(--primary)}
+.fdd-btn .ic{width:16px;height:16px;transition:transform .2s var(--ease)}
+.fdd.open .fdd-btn .ic{transform:rotate(180deg)}
+.fdd-n{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--primary);color:var(--on-primary);font-size:11px;font-weight:700}
+.fdd-n:empty{display:none}
+.fdd-panel{position:absolute;top:calc(100% + 10px);left:0;min-width:270px;max-height:min(420px,60vh);overflow:auto;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s var(--ease),transform .18s var(--ease),visibility 0s .18s}
+.fdd.open .fdd-panel{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.fopt{position:relative;display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:10px;font-size:15px;cursor:pointer}
+.fopt:hover{background:var(--soft)}
+.fopt input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.fopt .box{display:grid;place-items:center;flex:none;width:20px;height:20px;border:1px solid var(--line-2);border-radius:6px;background:var(--card);color:var(--on-primary)}
+.fopt .box .ic{width:13px;height:13px;stroke-width:2.4;opacity:0}
+.fopt input:checked+.box{background:var(--primary);border-color:var(--primary)}
+.fopt input:checked+.box .ic{opacity:1}
+.fopt input:focus-visible+.box{outline:2px solid var(--primary);outline-offset:2px}
+.fopt .n{margin-left:auto;font-size:13px;color:var(--dim)}
+.fopt.is-dis{opacity:.45;cursor:default}
+.fopt.is-dis:hover{background:none}
+.fbar-count{font-size:14px;color:var(--muted)}
+.sort{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.sort select{height:42px;padding:0 40px 0 18px;border:1px solid var(--line-2);border-radius:999px;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237c0e44' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 15px center;color:var(--ink);font-weight:500;appearance:none;-webkit-appearance:none;cursor:pointer}
+.achips{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:18px 0 0}
+.achip{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px 0 15px;border-radius:999px;background:var(--badge-bg);color:var(--primary);font:600 13px/1 var(--sans)}
+.achip .ic{width:14px;height:14px;stroke-width:2}
+.achip:hover{background:#f1d0d5}
+.achip-clear{margin-left:6px;font-size:13px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.pgrid--cat{margin-top:44px}
+.gift-tile{grid-column:span 2;grid-row:span 2;display:flex;align-items:stretch}
+.gift-tile-in{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:12px;padding:14px 14px 44px;border:1px solid var(--rose);border-radius:999px 999px 8px 8px;background:var(--surface);text-align:center}
+.gift-tile-img{flex:1;align-self:stretch;min-height:320px;margin-bottom:22px;border-radius:999px 999px 0 0;overflow:hidden;background:var(--soft)}
+.gift-tile-img img{width:100%;height:100%;object-fit:cover}
+.gift-tile-in .ic-lg{color:var(--primary)}
+.gift-tile-in h3{font-size:clamp(28px,2.6vw,38px)}
+.gift-tile-in p:not(.eyebrow){margin:0;max-width:34ch;color:var(--muted);font-size:15px}
+.gift-tile-in .link-arrow{margin-top:8px}
+.empty{grid-column:1/-1;padding:64px 16px;text-align:center}
+.empty h3{font-size:30px}
+.empty p{margin:10px 0 24px;color:var(--muted)}
+.cat-more{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:64px;font-size:14px;color:var(--muted)}
+.cat-more p{margin:0}
+.more-bar{width:220px;height:3px;border-radius:2px;background:var(--line);overflow:hidden}
+.more-bar span{display:block;height:100%;background:var(--primary);border-radius:2px;transition:width .3s var(--ease)}
+
+/* ---------- produkt ---------- */
+.pdp-wrap{padding-top:30px}
+.pdp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,104px);align-items:start;margin-top:34px}
+.pdp-gal{justify-self:end;width:100%;max-width:560px}
+.gal-frame{position:relative;padding:12px;border:1px solid var(--rose);border-bottom:0;border-radius:999px 999px 0 0}
+.gal-main{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:999px 999px 0 0;background:var(--soft)}
+.gal-main img{width:100%;height:100%;object-fit:cover}
+.gal-main .pcard-tag{left:22px;bottom:22px;transform:none}
+.gal-count{position:absolute;right:22px;bottom:22px;padding:7px 11px;border-radius:999px;background:rgba(255,250,247,.94);font:600 12px/1 var(--sans)}
+.gal-nav{position:absolute;top:58%;z-index:2;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(255,250,247,.94);color:var(--ink);box-shadow:0 6px 18px -8px rgba(46,11,29,.4);transition:background-color .2s}
+.gal-nav:hover{background:var(--card)}
+.gal-prev{left:26px}.gal-next{right:26px}
+.gal-thumbs{display:flex;justify-content:center;gap:12px;margin-top:20px}
+.gal-thumbs button{width:74px;aspect-ratio:3/4;overflow:hidden;border-radius:999px 999px 0 0;opacity:.55;outline:1px solid transparent;outline-offset:3px;transition:opacity .2s,outline-color .2s}
+.gal-thumbs button:hover{opacity:.85}
+.gal-thumbs button[aria-current="true"]{opacity:1;outline-color:var(--primary)}
+.gal-thumbs img{width:100%;height:100%;object-fit:cover}
+
+.pdp-info{position:sticky;top:148px;max-width:520px}
+.pdp-name{margin:14px 0 10px;font:400 clamp(34px,3.4vw,48px)/1.08 var(--display)}
+.pdp-sub{margin:0;color:var(--muted)}
+.pdp-rating{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:13.5px;color:var(--muted)}
+.pdp-price{margin-top:28px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pdp-price-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
+.pdp-now{font:400 44px/1 var(--display);color:var(--primary)}
+.pdp-rrp{font-size:16px;color:var(--dim)}
+.save--lg{padding:6px 11px;font-size:12.5px}
+.pdp-saving{margin:12px 0 0;font-size:14.5px;color:var(--muted)}
+.pdp-saving b{color:var(--primary)}
+.pdp-stock{display:flex;align-items:center;gap:10px;margin:12px 0 0;font-size:14px;font-weight:500}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(61,107,74,.15);flex:none}
+.pdp-stock.is-last .dot{background:var(--primary);box-shadow:0 0 0 4px rgba(124,14,68,.14)}
+.opt-label{display:flex;justify-content:space-between;gap:12px;margin:26px 0 12px;font:600 11.5px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.opt-label span{letter-spacing:.02em;text-transform:none;font-weight:500;color:var(--mauve-ink)}
+.variants{display:flex;flex-wrap:wrap;gap:10px}
+.variants button{min-width:132px;padding:12px 18px;border:1px solid var(--line-2);border-radius:16px;background:var(--card);text-align:left;transition:border-color .2s,box-shadow .2s}
+.variants button:hover{border-color:var(--mauve)}
+.variants b{display:block;font-size:15px;font-weight:600}
+.variants span{display:block;margin-top:3px;font-size:12.5px;color:var(--muted)}
+.variants button[aria-checked="true"]{border-color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary)}
+.buy{display:flex;gap:10px;margin-top:22px}
+.qty{display:flex;align-items:center;height:56px;border:1px solid var(--line-2);border-radius:999px;background:var(--card)}
+.qty button{width:46px;height:100%;display:grid;place-items:center;border-radius:999px}
+.qty button:hover{color:var(--primary)}
+.qty .ic{width:16px;height:16px}
+.qty input{width:34px;border:0;background:transparent;text-align:center;font-weight:600;font-size:16px}
+.btn-buy{flex:1;height:56px}
+.buy .icon-btn{width:56px;height:56px;flex:none}
+.giftbox{margin-top:22px;padding:20px 22px;border-radius:20px;background:var(--surface)}
+.giftbox-head{display:flex;gap:14px}
+.giftbox-ic{width:42px;height:42px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--card);color:var(--primary)}
+.giftbox-title{margin:0;font:400 21px/1.2 var(--display)}
+.giftbox-text{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.check{display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(212,154,154,.45);font-weight:500;font-size:15px;cursor:pointer}
+.check input{position:absolute;opacity:0;width:1px;height:1px}
+.check .box{display:grid;place-items:center;width:22px;height:22px;border:1px solid var(--line-2);border-radius:6px;background:var(--card);color:var(--on-primary)}
+.check .box .ic{width:14px;height:14px;stroke-width:2.4;opacity:0}
+.check input:checked+.box{background:var(--primary);border-color:var(--primary)}
+.check input:checked+.box .ic{opacity:1}
+.check input:focus-visible+.box{outline:2px solid var(--primary);outline-offset:2px}
+.gift-msg{margin-top:14px}
+.gift-msg label{display:block;margin-bottom:6px;font-size:13px;font-weight:600}
+.gift-msg textarea{width:100%;padding:12px 14px;border:1px solid var(--line-2);border-radius:14px;background:var(--card);resize:vertical;font-size:15px;line-height:1.5}
+.gift-cnt{display:block;margin-top:4px;text-align:right;font-size:12px;color:var(--dim)}
+.trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;list-style:none;margin:22px 0 0;padding:0}
+.trust li{display:flex;gap:10px;font-size:12.5px;line-height:1.4;color:var(--muted)}
+.trust .ic{width:19px;height:19px;color:var(--primary);margin-top:1px}
+.trust b{display:block;font-size:13px;color:var(--ink)}
+
+.pdp-detail{padding-bottom:0}
+.ptabs{display:flex;justify-content:center;gap:clamp(18px,4vw,52px);margin-bottom:44px;border-bottom:1px solid var(--line);overflow-x:auto}
+.ptabs button{padding:16px 2px;margin-bottom:-1px;border-bottom:2px solid transparent;font:400 22px/1 var(--display);color:var(--muted);white-space:nowrap;transition:color .2s,border-color .2s}
+.ptabs button:hover{color:var(--ink)}
+.ptabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--primary)}
+.ptab-panels{max-width:760px;margin:0 auto}
+.ptab-panel p{margin:0 0 16px;font-size:16.5px;text-align:center;color:var(--muted)}
+.ptab-panel p.first{font:400 clamp(21px,2vw,25px)/1.5 var(--display);color:var(--ink)}
+.params{display:grid;grid-template-columns:1fr 1fr;margin:0}
+.params div{display:contents}
+.params dt,.params dd{margin:0;padding:14px 0;border-bottom:1px solid var(--line)}
+.params dt{color:var(--muted)}
+.params dd{text-align:right;font-weight:500}
+
+/* ---------- šuplíky, hledání, toast, ukázka ---------- */
+.drawer{position:fixed;inset:0;z-index:90;visibility:hidden;transition:visibility 0s .26s}
+.drawer.open{visibility:visible;transition-delay:0s}
+.drawer-scrim{position:absolute;inset:0;background:rgba(46,11,29,.42);opacity:0;transition:opacity .26s var(--ease)}
+.drawer.open .drawer-scrim{opacity:1}
+.drawer-panel{position:absolute;top:0;bottom:0;left:0;display:flex;flex-direction:column;width:min(88vw,390px);background:var(--bg);overflow-y:auto;transform:translateX(-100%);transition:transform .26s var(--ease)}
+.drawer.open .drawer-panel{transform:none}
+.drawer--bottom .drawer-panel{top:auto;right:0;width:auto;max-height:88vh;border-radius:26px 26px 0 0;transform:translateY(100%)}
+.drawer--top .drawer-panel{bottom:auto;right:0;width:auto;transform:translateY(-100%);padding:26px 0 34px;border-radius:0 0 28px 28px}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:16px 16px 16px 24px;border-bottom:1px solid var(--line)}
+.drawer-head h2{font-size:28px}
+.drawer-head .wordmark-name{font-size:28px}
+.drawer-body{flex:1;padding:8px 20px 20px;overflow-y:auto}
+.drawer-foot{display:flex;gap:10px;padding:14px 20px calc(14px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--card)}
+.drawer-foot .btn{flex:1;padding:0 14px}
+.fd-group{margin:0;padding:18px 0 10px;border:0;border-bottom:1px solid var(--line)}
+.fd-group legend{padding:0;margin-bottom:6px;font:600 11.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.fd-group:last-child{border-bottom:0}
+.mnav{list-style:none;margin:0;padding:10px 0}
+.mnav a{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;font:400 23px/1.2 var(--display)}
+.mnav a small{font:500 12.5px/1 var(--sans);color:var(--dim)}
+.mnav a:hover{background:var(--soft)}
+.mnav .is-gift{color:var(--primary)}
+.mnav .is-sale{color:var(--mauve-ink)}
+.mnav-extra{display:grid;gap:4px;padding:16px 24px;border-top:1px solid var(--line);font-size:15px}
+.mnav-extra a{padding:6px 0}
+.mnav-usp{display:grid;gap:12px;margin-top:auto;padding:20px 24px 28px;background:var(--surface);font-size:13.5px}
+.mnav-usp span{display:flex;align-items:center;gap:10px}
+.mnav-usp .ic{color:var(--primary)}
+.search-form{display:flex;align-items:center;gap:14px;padding:0 6px 14px;border-bottom:1px solid var(--line-2)}
+.search-form>.ic{width:24px;height:24px;color:var(--primary)}
+.search-form input{flex:1;min-width:0;border:0;background:transparent;font:400 clamp(24px,3vw,34px)/1.2 var(--display);outline:none}
+.search-form input::placeholder{color:var(--dim)}
+.search-hint{margin:22px 0 12px;font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.search-tags{display:flex;flex-wrap:wrap;gap:8px}
+.search-tags a{padding:9px 16px;border:1px solid var(--line-2);border-radius:999px;font-size:14px;transition:border-color .2s,color .2s}
+.search-tags a:hover{border-color:var(--primary);color:var(--primary)}
+
+.toast{position:fixed;top:22px;right:22px;z-index:95;width:min(390px,calc(100vw - 32px));padding:18px;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 2px 4px rgba(46,11,29,.06),0 30px 60px -24px rgba(46,11,29,.45);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .22s var(--ease),transform .22s var(--ease),visibility 0s .22s}
+.toast.show{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.toast-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.toast-ok{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px}
+.toast-ok .ck{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--primary);color:var(--on-primary)}
+.toast-ok .ck .ic{width:13px;height:13px;stroke-width:2.4}
+.toast .icon-btn{width:36px;height:36px}
+.toast .icon-btn .ic{width:17px;height:17px}
+.toast-item{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:14px;align-items:center;margin-top:14px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.toast-item img{width:56px;height:70px;object-fit:cover;border-radius:999px 999px 4px 4px}
+.toast-name{margin:0;font:400 17px/1.25 var(--display)}
+.toast-meta{margin:3px 0 0;font-size:12.5px;color:var(--muted)}
+.toast-price{font-weight:600;white-space:nowrap}
+.toast-ship{margin-top:14px;font-size:13.5px;color:var(--muted)}
+.toast-ship p{margin:0 0 8px}
+.toast-ship b{color:var(--primary)}
+.toast-ship .more-bar{width:100%}
+.toast-actions{display:flex;gap:8px;margin-top:16px}
+.toast-actions .btn{flex:1;padding:0 12px}
+.toast.is-empty .toast-item,.toast.is-empty .toast-ship{display:none}
+
+.demo{position:fixed;left:50%;bottom:18px;z-index:80;display:flex;align-items:center;gap:2px;padding:5px;transform:translateX(-50%);background:rgba(255,250,247,.96);border:1px solid var(--line-2);border-radius:999px;box-shadow:var(--shadow);backdrop-filter:blur(6px)}
+.demo-label{padding:0 10px 0 12px;font:600 9.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mauve-ink);white-space:nowrap}
+.demo a{padding:9px 14px;border-radius:999px;font:500 13px/1 var(--sans);transition:background-color .2s,color .2s}
+.demo a:hover{background:var(--soft)}
+.demo a.on{background:var(--primary);color:var(--on-primary)}
+
+/* ---------- responzivita ---------- */
+@media (max-width:1180px){
+  .pgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cat-row{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:36px}
+  .ftr-grid{grid-template-columns:1fr 1fr 1fr;row-gap:44px}
+  .ftr-brand{grid-column:1/-1}
+  .gift-tile{grid-column:1/-1;grid-row:auto}
+  .gift-tile-in{padding:56px 32px 40px;justify-content:center}
+  .gift-tile-img{display:none}
+}
+@media (max-width:1100px){
+  .hero-grid{grid-template-columns:1fr 1fr;grid-template-areas:"copy copy" "l r";row-gap:60px;max-width:760px;margin:0 auto}
+  .hero-copy{grid-area:copy}
+  .hero-side--l{grid-area:l}
+  .hero-side--r{grid-area:r}
+  .hero-side--l .seal{right:auto;left:-26px}
+  .hero-side--r .seal{left:auto;right:-26px}
+  .occ-list{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(230px,1fr);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut);margin:0 calc(-1 * var(--gut));padding:0 var(--gut) 14px;scrollbar-width:thin}
+  .occ-list li{scroll-snap-align:start}
+  .why-compare{grid-template-columns:120px minmax(0,1fr)}
+}
+@media (max-width:960px){
+  .only-d{display:none!important}
+  .only-m{display:inline-grid!important}
+  .hdr-nav{display:none}
+  .hdr-main,.hdr.is-scrolled .hdr-main{height:68px}
+  .wordmark{gap:5px}
+  .wordmark-mark{display:none}
+  .wordmark-name{font-size:26px}
+  .wordmark-tag{font-size:8px;letter-spacing:.28em}
+  .usp-list{grid-template-columns:1fr 1fr;row-gap:30px}
+  .usp-list li:nth-child(3)::before{display:none}
+  .coll-row{grid-template-columns:1fr 1fr;row-gap:56px}
+  .gw-grid{grid-template-columns:1fr;row-gap:72px;text-align:center}
+  .gw-copy{display:flex;flex-direction:column;align-items:center}
+  .checks{justify-items:start;text-align:left}
+  .why-steps{grid-template-columns:1fr;row-gap:36px}
+  .why-steps li+li{border-left:0;border-top:1px solid rgba(212,154,154,.28);padding-top:36px}
+  .pdp{grid-template-columns:1fr;gap:44px}
+  .pdp-gal{justify-self:center}
+  .pdp-info{position:static;max-width:600px;margin:0 auto;width:100%}
+  .fdd{display:none}
+  .fbar-label{display:none}
+  .fbtn-m{display:inline-flex!important}
+  .fbtn-m .ic{width:17px;height:17px}
+  .pdp-wrap .crumbs ol{justify-content:center}
+}
+@media (max-width:760px){
+  .ann span:not(:first-child),.ann i{display:none}
+  .hero{padding-top:36px}
+  .hero-grid{column-gap:16px;row-gap:44px}
+  .hero-copy .h1{font-size:44px}
+  .hero-copy .lead{font-size:16.5px}
+  .hero-cta{width:100%;flex-direction:column;align-items:stretch}
+  .hero-facts b{font-size:22px;white-space:nowrap}
+  .seal{width:84px;height:84px;bottom:-16px}
+  .seal::before{inset:4px}
+  .seal b{font-size:21px;margin:3px 0 2px}
+  .seal small{font-size:7px;letter-spacing:.12em}
+  .seal .ic{width:18px;height:18px;margin-bottom:3px}
+  .hero-side--l .seal{right:auto;left:-6px}
+  .hero-side--r .seal{left:auto;right:-6px}
+  .hero-side figcaption{margin-top:34px}
+  .cat-head::before{display:none}
+  .pcard .price{display:grid;grid-template-columns:auto auto;justify-content:center;align-items:baseline;column-gap:8px;row-gap:7px}
+  .pcard .save{grid-column:1/-1;justify-self:center}
+  .hero-side figcaption{font-size:12.5px}
+  .usp-list{padding-top:30px;padding-bottom:30px}
+  .usp-list li{padding:0 10px}
+  .usp-list strong{font-size:14px}
+  .usp-list li>span:last-child{font-size:12.5px}
+  .occ-list{grid-auto-columns:64%}
+  .cat-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:36%;overflow-x:auto;margin:0 calc(-1 * var(--gut));padding:0 var(--gut) 12px;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut)}
+  .cat-row li{scroll-snap-align:start}
+  .coll-row{column-gap:14px}
+  .coll .arch-frame{padding:6px}
+  .coll h3{font-size:24px}
+  .coll-desc{font-size:13.5px}
+  .pgrid{grid-template-columns:1fr 1fr;gap:40px 14px}
+  .pcard-name{font-size:17px}
+  .pcard-body{padding-top:14px}
+  .price{gap:3px 8px}
+  .price-now{font-size:15.5px}
+  .price-rrp{font-size:12.5px}
+  .pcard-add{height:38px;padding:0 13px;font-size:10.5px;letter-spacing:.1em}
+  .pcard-fav{width:34px;height:34px}
+  .tabs-pill{margin-top:-12px;margin-bottom:36px}
+  .gw-round{width:120px;height:120px;right:-8px;bottom:-30px;border-width:6px}
+  .why-compare{grid-template-columns:1fr;text-align:left;padding:22px}
+  .wc-media{width:96px;margin:0 auto}
+  .news-form{flex-direction:column}
+  .news-form .btn{width:100%}
+  .ftr-grid{grid-template-columns:1fr 1fr}
+  .ftr{padding-top:60px}
+  .cat-title{margin-top:22px}
+  .type-chips{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;margin:28px calc(-1 * var(--gut)) 0;padding:0 var(--gut) 6px}
+  .fbar{flex-wrap:wrap}
+  .fbar-right{flex:1;justify-content:flex-end}
+  .fbar-count{display:none}
+  .sort span{display:none}
+  .gift-tile{grid-column:1/-1}
+  .gift-tile-in{padding:64px 22px 32px}
+  .gal-frame{padding:8px}
+  .gal-thumbs button{width:60px}
+  .gal-nav{width:38px;height:38px}
+  .gal-prev{left:16px}.gal-next{right:16px}
+  .pdp-now{font-size:38px}
+  .variants button{flex:1;min-width:0}
+  .buy{flex-wrap:wrap}
+  .btn-buy{order:3;flex-basis:100%}
+  .qty{flex:1;justify-content:space-between}
+  .trust{grid-template-columns:1fr;gap:10px}
+  .ptabs{justify-content:flex-start;margin:0 calc(-1 * var(--gut)) 32px;padding:0 var(--gut)}
+  .ptabs button{font-size:19px}
+  .ptab-panel p{text-align:left}
+  .toast{top:auto;bottom:78px;left:16px;right:16px;width:auto}
+  .demo-label{display:none}
+}
+@media (max-width:420px){
+  .hero-copy .h1{font-size:40px}
+  .hero-facts span{font-size:11.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+<style>.demo .demo-hub{white-space:nowrap}.is-preview .demo{display:none!important}</style>
+<script>if(/[?&]preview\b/.test(location.search))document.documentElement.classList.add('is-preview')</script>
+</head>
+<body>
+
+<!-- ikony -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 20c1.2-3.6 3.8-5.5 7-5.5s5.8 1.9 7 5.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 19.5s-7-4.3-7-9.6A3.9 3.9 0 0 1 12 7.6a3.9 3.9 0 0 1 7 2.3c0 5.3-7 9.6-7 9.6Z"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8.5h13l-1 11.5h-11l-1-11.5Z"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><path d="M4.5 11h15v9h-15zM3.5 7.5h17V11h-17zM12 7.5V20"/><path d="M12 7.5C10.8 5 7.5 4.3 7.5 6.2c0 1.3 2.2 1.3 4.5 1.3Zm0 0c1.2-2.5 4.5-3.2 4.5-1.3 0 1.3-2.2 1.3-4.5 1.3Z"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6.5h11v9.5H3zM14 9.5h4l3 3.2v3.3h-7"/><circle cx="7" cy="17.5" r="1.7"/><circle cx="17.5" cy="17.5" r="1.7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.2 5.5 6v5c0 4.3 2.8 7.6 6.5 9.6 3.7-2 6.5-5.3 6.5-9.6V6L12 3.2Z"/><path d="m9.2 12 2 2 3.8-3.9"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M4 7.8 12 4l8 3.8v8.4L12 20l-8-3.8V7.8Z"/><path d="m4 7.8 8 3.8 8-3.8M12 11.6V20"/></symbol>
+  <symbol id="i-return" viewBox="0 0 24 24"><path d="M9 9.5H5v-4"/><path d="M5.4 9.5A7 7 0 1 1 6 15.8"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12V4.5H11l9 9-7.5 7.5-9-9Z"/><circle cx="7.6" cy="8.1" r="1.3"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="m14.5 6-6 6 6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.9l-5.3 2.7 1-5.8-4.2-4.1 5.9-.9L12 3.5Z"/></symbol>
+  <symbol id="i-arch" viewBox="0 0 20 24"><path d="M2 23V10a8 8 0 0 1 16 0v13"/><path d="M6 23V11a4 4 0 0 1 8 0v12"/></symbol>
+</svg>
+
+<div class="ann" role="region" aria-label="Novinky obchodu">
+  <div class="wrap">
+    <span><svg class="ic" aria-hidden="true"><use href="#i-gift"/></svg>Dárkové balení zdarma ke každé objednávce</span>
+    <i aria-hidden="true"></i>
+    <span>Doprava zdarma od 2&nbsp;000&nbsp;Kč</span>
+    <i aria-hidden="true"></i>
+    <span>Originál Villeroy &amp; Boch přímo z&nbsp;výroby</span>
+  </div>
+</div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-main">
+    <div class="hdr-left">
+      <button class="icon-btn only-m" id="menuBtn" type="button" aria-label="Otevřít menu" aria-controls="navDrawer" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+      <button class="hdr-pill" id="searchBtn" type="button" aria-label="Hledat"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="only-d">Hledat</span></button>
+      <a class="hdr-pill only-d" href="#kategorie/darky"><svg class="ic" aria-hidden="true"><use href="#i-gift"/></svg>Dárky</a>
+    </div>
+    <a class="wordmark" href="#domu" aria-label="Bílé zlato – úvodní stránka">
+      <svg class="ic wordmark-mark" aria-hidden="true"><use href="#i-arch"/></svg>
+      <span class="wordmark-name">Bílé <span>zlato</span></span>
+      <span class="wordmark-tag">Porcelán přímo z výroby</span>
+    </a>
+    <div class="hdr-right">
+      <button class="icon-btn only-d" type="button" aria-label="Můj účet"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></button>
+      <button class="icon-btn only-d" type="button" aria-label="Oblíbené"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
+      <button class="icon-btn" id="cartBtn" type="button" aria-label="Košík, 0 položek"><svg class="ic" aria-hidden="true"><use href="#i-bag"/></svg><span class="cart-count" id="cartCount" hidden>0</span></button>
+    </div>
+  </div>
+  <nav class="hdr-nav" aria-label="Kategorie">
+    <ul>
+      <li><a href="#kategorie/talire" data-nav="talire">Talíře</a></li>
+      <li><a href="#kategorie/hrnky" data-nav="hrnky">Hrnky a šálky</a></li>
+      <li><a href="#kategorie/misky" data-nav="misky">Misky</a></li>
+      <li><a href="#kategorie/servirovani" data-nav="servirovani">Servírování</a></li>
+      <li><a href="#kategorie/sety" data-nav="sety">Jídelní sety</a></li>
+      <li><a href="#kategorie/kava" data-nav="kava">Káva a čaj</a></li>
+      <li><a href="#kategorie/dekorace" data-nav="dekorace">Dekorace</a></li>
+      <li><a class="is-gift" href="#kategorie/darky" data-nav="darky"><svg class="ic" aria-hidden="true"><use href="#i-gift"/></svg>Dárky</a></li>
+      <li><a class="is-sale" href="#kategorie/vyprodej" data-nav="vyprodej">Výprodej</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ======================= DOMŮ ======================= -->
+<div class="view" id="view-domu">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <figure class="hero-side hero-side--l">
+        <div class="arch-frame"><div class="arch-img"><img src="https://images.pexels.com/photos/11507900/pexels-photo-11507900.jpeg?auto=compress&cs=tinysrgb&w=900" width="900" height="1245" alt="Bílá porcelánová váza a talíř se sušenými květy na hedvábné látce" fetchpriority="high"></div>
+        <div class="seal" aria-hidden="true"><svg class="ic"><use href="#i-gift"/></svg><small>Dárkové<br>balení zdarma</small></div></div>
+        <figcaption><span class="eyebrow">Pro radost</span><a href="#kategorie/dekorace">Vázy a&nbsp;dekorace od 690&nbsp;Kč</a></figcaption>
+      </figure>
+
+      <div class="hero-copy">
+        <p class="eyebrow eyebrow--orn">Villeroy &amp; Boch · přímo z&nbsp;výroby</p>
+        <h1 class="h1">Porcelán, který se dává <em class="acc">z&nbsp;lásky</em></h1>
+        <p class="lead">Nový, originální porcelán Villeroy &amp; Boch za ceny až o&nbsp;45&nbsp;% nižší, než je doporučená cena výrobce. A&nbsp;ke každé objednávce dárkové balení zdarma.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#kategorie/darky">Vybrat dárek</a>
+          <a class="btn btn-ghost" href="#kategorie">Celá nabídka</a>
+        </div>
+        <ul class="hero-facts">
+          <li><b>až −45&nbsp;%</b><span>z doporučené ceny</span></li>
+          <li><b>24&nbsp;h</b><span>odeslání skladem</span></li>
+          <li><b>100&nbsp;%</b><span>nové originály</span></li>
+        </ul>
+      </div>
+
+      <figure class="hero-side hero-side--r">
+        <div class="arch-frame"><div class="arch-img"><img src="https://images.pexels.com/photos/18977894/pexels-photo-18977894.jpeg?auto=compress&cs=tinysrgb&w=900" width="900" height="1245" alt="Bílé talíře s reliéfním okrajem na lněném ubrusu, pohled shora" fetchpriority="high"></div>
+        <div class="seal" aria-hidden="true"><small>až</small><b>−45&nbsp;%</b><small>z doporučené<br>ceny</small></div></div>
+        <figcaption><span class="eyebrow">Château Blanc</span><a href="#produkt/4">Sada 4 talířů s&nbsp;reliéfem · 1&nbsp;490&nbsp;Kč</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="usp" aria-label="Proč nakupovat u nás">
+    <ul class="wrap usp-list">
+      <li><span class="usp-ic"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></span><strong>Originál Villeroy &amp; Boch</strong><span>Nové, nepoužité zboží s&nbsp;plnou zárukou</span></li>
+      <li><span class="usp-ic"><svg class="ic" aria-hidden="true"><use href="#i-tag"/></svg></span><strong>Až −45&nbsp;% z&nbsp;doporučené ceny</strong><span>Díky odběru přímo z&nbsp;výroby</span></li>
+      <li><span class="usp-ic"><svg class="ic" aria-hidden="true"><use href="#i-gift"/></svg></span><strong>Dárkové balení zdarma</strong><span>Krabice, stuha a&nbsp;přání s&nbsp;vaším vzkazem</span></li>
+      <li><span class="usp-ic"><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg></span><strong>Doprava zdarma od 2&nbsp;000&nbsp;Kč</strong><span>Skladem, odesíláme do 24&nbsp;hodin</span></li>
+    </ul>
+  </section>
+
+  <section class="sec occasions" aria-labelledby="occ-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow eyebrow--orn">Dárky</p>
+        <h2 class="h2" id="occ-h">Dárky podle příležitosti</h2>
+        <p class="sec-sub">Vybrali jsme kousky, které udělají radost – a&nbsp;přitom nezruinují rozpočet.</p>
+      </header>
+      <ul class="occ-list">
+        <li><a class="occ" href="#kategorie/sety"><div class="arch-img"><img src="https://images.pexels.com/photos/14132973/pexels-photo-14132973.jpeg?auto=compress&cs=tinysrgb&w=700" width="700" height="1003" loading="lazy" alt="Slavnostně prostřený svatební stůl s talíři se zlatou linkou"></div><h3>Svatba</h3><p>Základ společné domácnosti</p><span class="link-arrow">Vybrat <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="occ" href="#kategorie/talire"><div class="arch-img"><img src="https://images.pexels.com/photos/19650959/pexels-photo-19650959.jpeg?auto=compress&cs=tinysrgb&w=700" width="700" height="1003" loading="lazy" alt="Večeře při svíčkách s lahví vína a bílým talířem se zlatým okrajem"></div><h3>Výročí</h3><p>Na večeře ve dvou</p><span class="link-arrow">Vybrat <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="occ" href="#kategorie/darky"><div class="arch-img"><img src="https://images.pexels.com/photos/6327684/pexels-photo-6327684.jpeg?auto=compress&cs=tinysrgb&w=700" width="700" height="1003" loading="lazy" alt="Sváteční stůl s květinovým talířem a vyšívaným ubrouskem s věnečkem"></div><h3>Vánoce</h3><p>Pod stromeček i&nbsp;na sváteční stůl</p><span class="link-arrow">Vybrat <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="occ" href="#kategorie/servirovani"><div class="arch-img"><img src="https://images.pexels.com/photos/22598227/pexels-photo-22598227.jpeg?auto=compress&cs=tinysrgb&w=700" width="700" height="1003" loading="lazy" alt="Snídaně u okna na stole s bílým porcelánem"></div><h3>Kolaudace</h3><p>Do nového domova</p><span class="link-arrow">Vybrat <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="occ" href="#kategorie/do1000"><div class="arch-img"><img src="https://images.pexels.com/photos/590482/pexels-photo-590482.jpeg?auto=compress&cs=tinysrgb&w=700" width="700" height="1003" loading="lazy" alt="Bílý šálek kávy s podšálkem v teplém světle u okna"><span class="occ-badge">Do 1&nbsp;000&nbsp;Kč</span></div><h3>Malá radost</h3><p>Dárky do 1&nbsp;000&nbsp;Kč</p><span class="link-arrow">Vybrat <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec cats" aria-labelledby="cats-h" style="padding-top:0">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow eyebrow--orn">Sortiment</p>
+        <h2 class="h2" id="cats-h">Nakupujte podle kategorie</h2>
+      </header>
+      <ul class="cat-row">
+        <li><a class="cat" href="#kategorie/talire"><span class="arch-img"><img src="https://images.pexels.com/photos/18977894/pexels-photo-18977894.jpeg?auto=compress&cs=tinysrgb&w=400" width="400" height="533" loading="lazy" alt=""></span><span class="cat-name">Talíře</span><span class="cat-n" data-count="talire"></span></a></li>
+        <li><a class="cat" href="#kategorie/hrnky"><span class="arch-img"><img src="https://images.pexels.com/photos/31391514/pexels-photo-31391514.jpeg?auto=compress&cs=tinysrgb&w=400" width="400" height="533" loading="lazy" alt=""></span><span class="cat-name">Hrnky a&nbsp;šálky</span><span class="cat-n" data-count="hrnky"></span></a></li>
+        <li><a class="cat" href="#kategorie/misky"><span class="arch-img"><img src="https://images.pexels.com/photos/6944482/pexels-photo-6944482.jpeg?auto=compress&cs=tinysrgb&w=400" width="400" height="533" loading="lazy" alt=""></span><span class="cat-name">Misky</span><span class="cat-n" data-count="misky"></span></a></li>
+        <li><a class="cat" href="#kategorie/servirovani"><span class="arch-img"><img src="https://images.pexels.com/photos/3756655/pexels-photo-3756655.jpeg?auto=compress&cs=tinysrgb&w=400" width="400" height="533" loading="lazy" alt=""></span><span class="cat-name">Servírování</span><span class="cat-n" data-count="servirovani"></span></a></li>
+        <li><a class="cat" href="#kategorie/sety"><span class="arch-img"><img src="https://images.pexels.com/photos/8251778/pexels-photo-8251778.jpeg?auto=compress&cs=tinysrgb&w=400" width="400" height="533" loading="lazy" alt=""></span><span class="cat-name">Jídelní sety</span><span class="cat-n" data-count="sety"></span></a></li>
+        <li><a class="cat" href="#kategorie/kava"><span class="arch-img"><img src="https://images.pexels.com/photos/685527/pexels-photo-685527.jpeg?auto=compress&cs=tinysrgb&w=400" width="400" height="533" loading="lazy" alt=""></span><span class="cat-name">Káva a&nbsp;čaj</span><span class="cat-n" data-count="kava"></span></a></li>
+        <li><a class="cat" href="#kategorie/dekorace"><span class="arch-img"><img src="https://images.pexels.com/photos/8217492/pexels-photo-8217492.jpeg?auto=compress&cs=tinysrgb&w=400" width="400" height="533" loading="lazy" alt=""></span><span class="cat-name">Dekorace</span><span class="cat-n" data-count="dekorace"></span></a></li>
+        <li><a class="cat cat--sale" href="#kategorie/vyprodej"><span class="arch-img"><span><b>−45&nbsp;%</b><small>Poslední<br>kusy</small></span></span><span class="cat-name">Výprodej</span><span class="cat-n" data-count="vyprodej"></span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec coll-band" aria-labelledby="coll-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow eyebrow--orn">Kolekce</p>
+        <h2 class="h2" id="coll-h">Kolekce, které <em class="acc">milujeme</em></h2>
+        <p class="sec-sub">Nadčasové řady Villeroy &amp; Boch, které se dají dokupovat kus po kuse – ideální pro postupně rostoucí sadu.</p>
+      </header>
+      <ul class="coll-row">
+        <li><a class="coll" href="#produkt/1"><div class="arch-frame"><div class="arch-img"><img src="https://images.pexels.com/photos/14132973/pexels-photo-14132973.jpeg?auto=compress&cs=tinysrgb&w=700" width="700" height="933" loading="lazy" alt="Talíře Anmut Gold se zlatou linkou na prostřeném stole"></div></div><p class="eyebrow">Zlatá linka</p><h3>Anmut Gold</h3><p class="coll-desc">Čistá bílá s&nbsp;linkou z&nbsp;pravého zlata pro slavnostní tabuli.</p><p class="coll-from">od 749&nbsp;Kč</p></a></li>
+        <li><a class="coll" href="#produkt/3"><div class="arch-frame"><div class="arch-img"><img src="https://images.pexels.com/photos/18977904/pexels-photo-18977904.jpeg?auto=compress&cs=tinysrgb&w=700" width="700" height="933" loading="lazy" alt="Porcelán s jemným modrošedým dekorem a reliéfním okrajem"></div></div><p class="eyebrow">Modrý dekor</p><h3>Old Luxembourg</h3><p class="coll-desc">Jemný modrý dekor s&nbsp;tradicí od 18.&nbsp;století.</p><p class="coll-from">od 1&nbsp;190&nbsp;Kč</p></a></li>
+        <li><a class="coll" href="#produkt/4"><div class="arch-frame"><div class="arch-img"><img src="https://images.pexels.com/photos/18977894/pexels-photo-18977894.jpeg?auto=compress&cs=tinysrgb&w=700" width="700" height="933" loading="lazy" alt="Bílé talíře s reliéfním okrajem na lněném ubrusu"></div></div><p class="eyebrow">Reliéf</p><h3>Château Blanc</h3><p class="coll-desc">Reliéfní okraje, které na stole chytají světlo.</p><p class="coll-from">od 1&nbsp;490&nbsp;Kč</p></a></li>
+        <li><a class="coll" href="#produkt/5"><div class="arch-frame"><div class="arch-img"><img src="https://images.pexels.com/photos/31391514/pexels-photo-31391514.jpeg?auto=compress&cs=tinysrgb&w=700" width="700" height="933" loading="lazy" alt="Bílý šálek kávy s podšálkem v měkkém světle"></div></div><p class="eyebrow">Každý den</p><h3>Afina</h3><p class="coll-desc">Tenké okraje a&nbsp;lehkost pro všední rána.</p><p class="coll-from">od 429&nbsp;Kč</p></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec best" aria-labelledby="best-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow eyebrow--orn">Oblíbené</p>
+        <h2 class="h2" id="best-h">Co si zákazníci zamilovali</h2>
+      </header>
+      <div class="tabs-pill" role="tablist" aria-label="Výběr produktů">
+        <button type="button" role="tab" aria-selected="true" data-htab="best">Bestsellery</button>
+        <button type="button" role="tab" aria-selected="false" data-htab="new">Novinky</button>
+        <button type="button" role="tab" aria-selected="false" data-htab="u1000">Do 1&nbsp;000&nbsp;Kč</button>
+      </div>
+      <div class="pgrid" id="homeGrid" role="tabpanel" aria-label="Produkty"></div>
+      <div class="center"><a class="btn btn-ghost" href="#kategorie">Zobrazit všech 14 produktů</a></div>
+    </div>
+  </section>
+
+  <section class="sec giftwrap" id="baleni" aria-labelledby="gw-h" style="padding-top:0">
+    <div class="wrap gw-grid">
+      <figure class="gw-media">
+        <div class="arch-frame"><div class="arch-img"><img src="https://images.pexels.com/photos/8217492/pexels-photo-8217492.jpeg?auto=compress&cs=tinysrgb&w=900" width="900" height="1125" loading="lazy" alt="Bílé porcelánové vázy se sušenou trávou a svíčkou"></div></div>
+        <div class="gw-round"><img src="https://images.pexels.com/photos/5040767/pexels-photo-5040767.jpeg?auto=compress&cs=tinysrgb&w=400" width="400" height="400" loading="lazy" alt="Malé bílé džbánky a vázičky s růžovou snítkou"></div>
+      </figure>
+      <div class="gw-copy">
+        <p class="eyebrow">Dárkové balení zdarma</p>
+        <h2 class="h2" id="gw-h">Zabalíme to <em class="acc">za vás</em></h2>
+        <p class="lead">Stačí v&nbsp;košíku zaškrtnout „Zabalit jako dárek“. Porcelán uložíme do krabice s&nbsp;hedvábným papírem, převážeme stuhou a&nbsp;přiložíme přání s&nbsp;vaším vzkazem.</p>
+        <ul class="checks">
+          <li><span class="ck"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>Dárková krabice se stuhou</li>
+          <li><span class="ck"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>Ručně psané přání s&nbsp;vaším vzkazem</li>
+          <li><span class="ck"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>Bez ceny v&nbsp;balíku – doklad pošleme e-mailem</li>
+        </ul>
+        <a class="btn btn-primary" href="#kategorie/darky">Vybrat dárek</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec why" id="proc" aria-labelledby="why-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow eyebrow--orn">Přímo z výroby</p>
+        <h2 class="h2" id="why-h">Proč u&nbsp;nás porcelán stojí <em class="acc">méně</em></h2>
+        <p class="sec-sub">Žádné triky ani druhá jakost. Jen kratší cesta od výrobce k&nbsp;vašemu stolu.</p>
+      </header>
+      <ol class="why-steps">
+        <li><span class="why-n">I.</span><h3>Odebíráme přímo z&nbsp;výroby</h3><p>Bez velkoobchodu a&nbsp;distributorů. Kupujeme nové, nepoužité kusy přímo od výrobce.</p></li>
+        <li><span class="why-n">II.</span><h3>Bez kamenných prodejen</h3><p>Neplatíme nájmy v&nbsp;obchodních centrech – úsporu necháváme ve vaší ceně.</p></li>
+        <li><span class="why-n">III.</span><h3>Každý kus kontrolujeme</h3><p>Než porcelán zabalíme, projde nám rukama. Posíláme jen bezvadné zboží.</p></li>
+      </ol>
+      <div class="why-compare">
+        <div class="arch-img wc-media"><img src="https://images.pexels.com/photos/7191403/pexels-photo-7191403.jpeg?auto=compress&cs=tinysrgb&w=400" width="400" height="533" loading="lazy" alt="Naskládané bílé porcelánové misky na skladové polici"></div>
+        <div class="wc-body">
+          <p class="eyebrow">Příklad · Anmut Gold, jídelní talíř 27&nbsp;cm</p>
+          <div class="wc-row"><span>Doporučená cena výrobce</span><s>1&nbsp;290&nbsp;Kč</s></div>
+          <div class="wc-bar" aria-hidden="true"><span style="width:100%"></span></div>
+          <div class="wc-row wc-row--us"><span>U&nbsp;nás</span><b>749&nbsp;Kč</b></div>
+          <div class="wc-bar wc-bar--us" aria-hidden="true"><span style="width:58%"></span></div>
+          <p class="wc-save">Ušetříte 541&nbsp;Kč na jediném talíři.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec quote" aria-label="Recenze zákaznice">
+    <div class="wrap quote-in">
+      <span class="stars" role="img" aria-label="Hodnocení 5 z 5"><svg class="ic ic-star" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic ic-star" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic ic-star" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic ic-star" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic ic-star" aria-hidden="true"><use href="#i-star"/></svg></span>
+      <blockquote><p>„Talíře Anmut Gold jsme dávali sestře ke svatbě. Přišly krásně zabalené, s&nbsp;přáníčkem – a&nbsp;stály skoro o&nbsp;polovinu méně než v&nbsp;obchodě.“</p></blockquote>
+      <p class="quote-by">Kateřina, Plzeň · ověřený nákup</p>
+    </div>
+  </section>
+
+  <section class="news" aria-labelledby="news-h">
+    <div class="wrap">
+      <div class="news-card">
+        <p class="eyebrow eyebrow--orn">Novinky e-mailem</p>
+        <h2 class="h2" id="news-h">Nové kusy a&nbsp;poslední série jako první</h2>
+        <p class="lead">Jednou za čtrnáct dní. Žádný spam – odhlásit se můžete jedním kliknutím.</p>
+        <form class="news-form" id="newsForm">
+          <label class="sr-only" for="nl">Váš e-mail</label>
+          <input id="nl" type="email" placeholder="vas@email.cz" autocomplete="email" required>
+          <button class="btn btn-primary" type="submit">Odebírat</button>
+        </form>
+        <p class="news-ok" id="newsOk" role="status" hidden>Děkujeme! Potvrzovací e-mail je na cestě.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= KATEGORIE ======================= -->
+<div class="view" id="view-kategorie" hidden>
+  <section class="cat-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Drobečková navigace"><ol><li><a href="#domu">Domů</a></li><li><a href="#kategorie">Porcelán</a></li><li aria-current="page" id="crumbCur">Všechny produkty</li></ol></nav>
+      <h1 class="h1 cat-title" id="catTitle">Všechny produkty</h1>
+      <p class="lead cat-intro" id="catIntro"></p>
+      <div class="type-chips" id="typeChips" aria-label="Typ produktu"></div>
+    </div>
+  </section>
+  <section class="cat-body" aria-label="Produkty">
+    <div class="wrap">
+      <div class="fbar">
+        <div class="fbar-left">
+          <span class="fbar-label">Filtrovat</span>
+          <button class="fbtn-m" id="filterBtn" type="button" style="display:none" aria-controls="filterDrawer"><svg class="ic" aria-hidden="true"><use href="#i-filter"/></svg>Filtry <span class="fdd-n" id="filterBtnCount"></span></button>
+          <div class="fdd" data-fdd="colls"><button class="fdd-btn" type="button" aria-expanded="false">Kolekce <span class="fdd-n"></span><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></button><div class="fdd-panel" data-fgroup="colls"></div></div>
+          <div class="fdd" data-fdd="price"><button class="fdd-btn" type="button" aria-expanded="false">Cena <span class="fdd-n"></span><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></button><div class="fdd-panel" data-fgroup="price"></div></div>
+          <div class="fdd" data-fdd="stock"><button class="fdd-btn" type="button" aria-expanded="false">Dostupnost <span class="fdd-n"></span><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></button><div class="fdd-panel" data-fgroup="stock"></div></div>
+        </div>
+        <div class="fbar-right">
+          <span class="fbar-count" id="catCount" aria-live="polite"></span>
+          <label class="sort"><span>Řadit</span>
+            <select id="sortSel" aria-label="Řazení">
+              <option value="rec">Doporučené</option>
+              <option value="cheap">Od nejlevnějších</option>
+              <option value="exp">Od nejdražších</option>
+              <option value="save">Největší sleva</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="achips" id="activeChips" hidden></div>
+      <div class="pgrid pgrid--cat" id="catGrid"></div>
+      <div class="cat-more" id="catMore"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= PRODUKT ======================= -->
+<div class="view" id="view-produkt" hidden>
+  <div class="wrap pdp-wrap">
+    <nav class="crumbs" aria-label="Drobečková navigace"><ol id="pdpCrumbs"></ol></nav>
+    <div class="pdp">
+      <div class="pdp-gal">
+        <div class="gal-frame">
+          <div class="gal-main" id="galMain">
+            <img src="" alt="" width="1000" height="1250">
+            <span class="pcard-tag" id="galTag" hidden></span>
+            <span class="gal-count" id="galCount" aria-live="polite"></span>
+          </div>
+          <button class="gal-nav gal-prev" id="galPrev" type="button" aria-label="Předchozí fotografie"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
+          <button class="gal-nav gal-next" id="galNext" type="button" aria-label="Další fotografie"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+        </div>
+        <div class="gal-thumbs" id="galThumbs"></div>
+      </div>
+
+      <div class="pdp-info">
+        <p class="eyebrow" id="pdpColl"></p>
+        <h1 class="pdp-name" id="pdpName"></h1>
+        <p class="pdp-sub" id="pdpDims"></p>
+        <div class="pdp-rating" id="pdpRating"></div>
+
+        <div class="pdp-price">
+          <div class="pdp-price-row"><span class="pdp-now" id="pdpPrice"></span><s class="pdp-rrp" id="pdpRrp"></s><span class="save save--lg" id="pdpSave"></span></div>
+          <p class="pdp-saving" id="pdpSaving"></p>
+          <p class="pdp-stock" id="pdpStock"></p>
+        </div>
+
+        <p class="opt-label" id="varLabel">Balení <span id="pdpVarNote"></span></p>
+        <div class="variants" id="pdpVariants" role="radiogroup" aria-labelledby="varLabel"></div>
+
+        <div class="buy">
+          <div class="qty">
+            <button id="qtyMinus" type="button" aria-label="Snížit množství"><svg class="ic" aria-hidden="true"><use href="#i-minus"/></svg></button>
+            <input id="qtyVal" value="1" inputmode="numeric" aria-label="Množství">
+            <button id="qtyPlus" type="button" aria-label="Zvýšit množství"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></button>
+          </div>
+          <button class="btn btn-primary btn-buy" id="addBtn" type="button"><svg class="ic" aria-hidden="true"><use href="#i-bag"/></svg>Přidat do košíku</button>
+          <button class="icon-btn icon-btn--line" id="pdpFav" type="button" aria-label="Přidat do oblíbených" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
+        </div>
+
+        <div class="giftbox">
+          <div class="giftbox-head">
+            <span class="giftbox-ic"><svg class="ic" aria-hidden="true"><use href="#i-gift"/></svg></span>
+            <div><p class="giftbox-title">Hodí se jako dárek</p><p class="giftbox-text">Zabalíme zdarma do dárkové krabice se stuhou a&nbsp;přiložíme přání s&nbsp;vaším vzkazem.</p></div>
+          </div>
+          <label class="check"><input type="checkbox" id="giftWrap"><span class="box"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>Zabalit jako dárek zdarma</label>
+          <div class="gift-msg" id="giftMsg" hidden>
+            <label for="giftText">Vzkaz na přání</label>
+            <textarea id="giftText" rows="3" maxlength="160" placeholder="Např. Ať vám chutná každé ráno. S láskou, Jana"></textarea>
+            <span class="gift-cnt"><span id="giftCnt">0</span> / 160 znaků</span>
+          </div>
+        </div>
+
+        <ul class="trust">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span><b>Originál V&amp;B</b>Nové, nepoužité zboží</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span><b>Bezpečné balení</b>Každý kus zvlášť</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-return"/></svg><span><b>Vrácení do 14&nbsp;dní</b>Bez udání důvodu</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section class="sec pdp-detail" aria-label="Informace o produktu">
+    <div class="wrap">
+      <div class="ptabs" role="tablist" aria-label="Informace o produktu">
+        <button type="button" role="tab" id="t-desc" aria-controls="p-desc" aria-selected="true" data-ptab="desc">Popis</button>
+        <button type="button" role="tab" id="t-par" aria-controls="p-par" aria-selected="false" data-ptab="par">Parametry</button>
+        <button type="button" role="tab" id="t-care" aria-controls="p-care" aria-selected="false" data-ptab="care">Péče o&nbsp;porcelán</button>
+        <button type="button" role="tab" id="t-ship" aria-controls="p-ship" aria-selected="false" data-ptab="ship">Doprava a&nbsp;vrácení</button>
+      </div>
+      <div class="ptab-panels">
+        <div class="ptab-panel" role="tabpanel" id="p-desc" aria-labelledby="t-desc"><p class="first" id="pdpDesc"></p><p>Výrobek je nový, nepoužitý a&nbsp;pochází přímo z&nbsp;produkce Villeroy &amp; Boch. Ke zboží dostanete doklad o&nbsp;koupi a&nbsp;plnou zákonnou záruku.</p></div>
+        <div class="ptab-panel" role="tabpanel" id="p-par" aria-labelledby="t-par" hidden><dl class="params" id="pdpParams"></dl></div>
+        <div class="ptab-panel" role="tabpanel" id="p-care" aria-labelledby="t-care" hidden><p class="first">Porcelán Villeroy &amp; Boch zvládne myčku i&nbsp;každodenní provoz.</p><p>Pro dlouhou životnost dekorů doporučujeme šetrný program do 55&nbsp;°C a&nbsp;mycí prostředek bez chloru. Výrobky se zlatou nebo platinovou linkou nedávejte do mikrovlnné trouby.</p></div>
+        <div class="ptab-panel" role="tabpanel" id="p-ship" aria-labelledby="t-ship" hidden><p class="first">Skladové kusy odesíláme do 24&nbsp;hodin, od 2&nbsp;000&nbsp;Kč s&nbsp;dopravou zdarma.</p><p>Každý kus balíme zvlášť do ochranného materiálu. Zboží můžete do 14&nbsp;dní vrátit bez udání důvodu – stačí nám napsat.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec related" aria-labelledby="rel-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow eyebrow--orn">Doplňte sadu</p>
+        <h2 class="h2" id="rel-h">Hodí se <em class="acc">k&nbsp;tomu</em></h2>
+      </header>
+      <div class="pgrid" id="relGrid"></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div class="ftr-brand">
+        <a class="wordmark" href="#domu"><span class="wordmark-name">Bílé <span>zlato</span></span><span class="wordmark-tag">Porcelán přímo z výroby</span></a>
+        <p class="ftr-about">Originální porcelán Villeroy &amp; Boch přímo z&nbsp;výroby. Nové kusy za ceny, které dávají smysl – a&nbsp;zabalené tak, aby udělaly radost.</p>
+      </div>
+      <div><h3>Nakupování</h3><ul><li><a href="#kategorie/talire">Talíře</a></li><li><a href="#kategorie/hrnky">Hrnky a&nbsp;šálky</a></li><li><a href="#kategorie/sety">Jídelní sety</a></li><li><a href="#kategorie/darky">Dárky</a></li><li><a href="#kategorie/vyprodej">Výprodej</a></li></ul></div>
+      <div><h3>Zákazník</h3><ul><li><a href="#domu">Doprava a&nbsp;platba</a></li><li><a href="#domu/baleni">Dárkové balení</a></li><li><a href="#domu">Vrácení zboží</a></li><li><a href="#domu">Reklamace</a></li></ul></div>
+      <div><h3>O nás</h3><ul><li><a href="#domu/proc">Proč tak levně</a></li><li><a href="#domu">Originalita zboží</a></li><li><a href="#domu">Obchodní podmínky</a></li><li><a href="#domu">Ochrana osobních údajů</a></li></ul></div>
+      <div><h3>Kontakt</h3><ul><li>info@bilezlato.cz</li><li>+420 000 000 000</li><li>Po–Pá 9–17&nbsp;h</li><li>Platba kartou, převodem, Apple Pay i&nbsp;na dobírku</li></ul></div>
+    </div>
+    <div class="ftr-bottom">
+      <span>© 2026 Bílé zlato. Villeroy &amp; Boch je ochranná známka svého vlastníka. Bílé zlato je nezávislý prodejce.</span>
+      <span>Návrh designu · ilustrační fotografie: Pexels</span>
+    </div>
+  </div>
+</footer>
+
+<!-- menu (mobil) -->
+<div class="drawer" id="navDrawer" aria-hidden="true">
+  <div class="drawer-scrim" data-close></div>
+  <nav class="drawer-panel" aria-label="Hlavní menu">
+    <div class="drawer-head"><span class="wordmark-name">Bílé <span>zlato</span></span><button class="icon-btn" type="button" data-close aria-label="Zavřít menu"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <ul class="mnav">
+      <li><a href="#kategorie/talire">Talíře <small data-count="talire"></small></a></li>
+      <li><a href="#kategorie/hrnky">Hrnky a šálky <small data-count="hrnky"></small></a></li>
+      <li><a href="#kategorie/misky">Misky <small data-count="misky"></small></a></li>
+      <li><a href="#kategorie/servirovani">Servírování <small data-count="servirovani"></small></a></li>
+      <li><a href="#kategorie/sety">Jídelní sety <small data-count="sety"></small></a></li>
+      <li><a href="#kategorie/kava">Káva a čaj <small data-count="kava"></small></a></li>
+      <li><a href="#kategorie/dekorace">Dekorace <small data-count="dekorace"></small></a></li>
+      <li><a class="is-gift" href="#kategorie/darky">Dárky podle příležitosti</a></li>
+      <li><a class="is-sale" href="#kategorie/vyprodej">Výprodej <small data-count="vyprodej"></small></a></li>
+    </ul>
+    <div class="mnav-extra"><a href="#domu/proc">Proč tak levně?</a><a href="#domu/baleni">Dárkové balení</a><a href="#domu">Kontakt</a></div>
+    <div class="mnav-usp">
+      <span><svg class="ic" aria-hidden="true"><use href="#i-gift"/></svg>Dárkové balení zdarma</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg>Doprava zdarma od 2&nbsp;000&nbsp;Kč</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Originál Villeroy &amp; Boch</span>
+    </div>
+  </nav>
+</div>
+
+<!-- hledání -->
+<div class="drawer drawer--top" id="searchDrawer" aria-hidden="true">
+  <div class="drawer-scrim" data-close></div>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Hledání">
+    <div class="wrap">
+      <form class="search-form" id="searchForm" role="search">
+        <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+        <label class="sr-only" for="q">Hledat v obchodě</label>
+        <input id="q" type="search" placeholder="Hledejte talíře, šálky nebo kolekce…" autocomplete="off">
+        <button class="icon-btn" type="button" data-close aria-label="Zavřít hledání"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </form>
+      <p class="search-hint">Často hledáte</p>
+      <div class="search-tags"><a href="#produkt/1">Anmut Gold</a><a href="#kategorie/sety">Svatební dar</a><a href="#kategorie/hrnky">Hrnky</a><a href="#kategorie/do1000">Dárek do 1&nbsp;000&nbsp;Kč</a><a href="#produkt/3">Old Luxembourg</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- filtry (mobil) -->
+<div class="drawer drawer--bottom" id="filterDrawer" aria-hidden="true">
+  <div class="drawer-scrim" data-close></div>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="fdTitle">
+    <div class="drawer-head"><h2 id="fdTitle">Filtry</h2><button class="icon-btn" type="button" data-close aria-label="Zavřít filtry"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="drawer-body">
+      <fieldset class="fd-group"><legend>Kolekce</legend><div data-fgroup="colls"></div></fieldset>
+      <fieldset class="fd-group"><legend>Cena</legend><div data-fgroup="price"></div></fieldset>
+      <fieldset class="fd-group"><legend>Dostupnost</legend><div data-fgroup="stock"></div></fieldset>
+    </div>
+    <div class="drawer-foot"><button class="btn btn-ghost" id="fdReset" type="button">Zrušit vše</button><button class="btn btn-primary" id="fdApply" type="button" data-close>Zobrazit</button></div>
+  </div>
+</div>
+
+<!-- přidáno do košíku -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <div class="toast-head">
+    <span class="toast-ok"><span class="ck"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><span id="toastTitle">Přidáno do košíku</span></span>
+    <button class="icon-btn" type="button" data-toast-close aria-label="Zavřít"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="toast-item">
+    <img id="toastImg" src="" alt="" width="56" height="70">
+    <div><p class="toast-name" id="toastName"></p><p class="toast-meta" id="toastMeta"></p></div>
+    <b class="toast-price" id="toastPrice"></b>
+  </div>
+  <div class="toast-ship"><p id="toastShip"></p><div class="more-bar"><span id="toastBar"></span></div></div>
+  <div class="toast-actions"><button class="btn btn-ghost btn-sm" type="button" data-toast-close>Pokračovat</button><button class="btn btn-primary btn-sm" type="button" data-toast-close>Do košíku</button></div>
+</div>
+
+<!-- přepínač ukázky -->
+<nav class="demo" aria-label="Ukázka návrhu">
+  <span class="demo-label">Ukázka návrhu</span>
+  <a href="index.html" class="demo-hub" title="Přehled všech návrhů">← Návrhy</a>
+  <a href="#domu" data-demo="domu">Domů</a>
+  <a href="#kategorie" data-demo="kategorie">Kategorie</a>
+  <a href="#produkt" data-demo="produkt">Produkt</a>
+</nav>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const NB = ' ';
+  const IMG = (id, w = 800) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+  const fmt = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, NB) + NB + 'Kč';
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const plural = (n, one, few, many) => n === 1 ? one : (n >= 2 && n <= 4 ? few : many);
+  const produktu = n => `${n}${NB}${plural(n, 'produkt', 'produkty', 'produktů')}`;
+  const icon = (id, cls = 'ic') => `<svg class="${cls}" aria-hidden="true"><use href="#${id}"/></svg>`;
+  const nb = s => s.replace(/(\d) (cm|l|ks|dílů|velikostí)/g, `$1${NB}$2`);
+  const pct = (now, rrp) => Math.round((1 - now / rrp) * 100);
+
+  const TYPES = {talire:'Talíře', hrnky:'Hrnky a šálky', misky:'Misky', servirovani:'Servírování', sety:'Jídelní sety', kava:'Káva a čaj', dekorace:'Dekorace', vyprodej:'Výprodej'};
+
+  /* ---------- data (ilustrační) ---------- */
+  const P = [
+    {id:1, c:'Anmut Gold', n:'Jídelní talíř 27 cm se zlatou linkou', p:749, r:1290, img:14132973, types:['talire'], unit:'ks', stock:'in', tag:'Bestseller', micro:false, dims:'Ø 27 cm', rating:4.9, reviews:52,
+      gal:[14132973, 6479599, 19650959, 18977894], alt:'Prostřený stůl s talíři se zlatou linkou',
+      d:'Čistě bílý porcelán s jemnou linkou z pravého zlata. Talíř, který povýší nedělní oběd i slavnostní večeři – a ladí s jednoduchým i bohatě prostřeným stolem.'},
+    {id:2, c:'Royal', n:'Hluboký talíř 24 cm', p:389, r:690, img:291767, types:['talire'], unit:'ks', stock:'last', micro:true, dims:'Ø 24 cm · 0,4 l', rating:4.8, reviews:31,
+      gal:[291767, 735869, 18977894, 14132973], alt:'Bílý hluboký talíř s příborem a sklenicí na víno',
+      d:'Hluboký talíř z nadčasové kolekce Royal. Hladký tvar, tenká stěna a zářivě bílá glazura – na polévky, těstoviny i saláty.'},
+    {id:3, c:'Old Luxembourg', n:'Snídaňová sada – šálek, podšálek, talíř', p:1190, r:2090, img:18977904, types:['sety','kava'], unit:'sada', stock:'in', tag:'Bestseller', micro:true, dims:'šálek 0,2 l · podšálek Ø 16 cm · talíř Ø 21 cm', rating:5.0, reviews:64,
+      gal:[18977904, 18977894, 31391514, 13008735], alt:'Porcelánová snídaňová sada s jemným modrošedým dekorem',
+      d:'Šálek, podšálek a dezertní talíř s jemným modrým dekorem. Klasika, ve které chutná ranní káva o něco slavnostněji – krásný dárek pro babičku i mladý pár.'},
+    {id:4, c:'Château Blanc', n:'Sada 4 talířů s reliéfem', p:1490, r:2690, img:18977894, types:['talire','sety'], unit:'sada', stock:'in', micro:true, dims:'4× talíř Ø 27 cm', rating:4.9, reviews:38,
+      gal:[18977894, 18977904, 291767, 14132973], alt:'Bílé talíře s reliéfním okrajem na lněném ubrusu',
+      d:'Sada čtyř jídelních talířů s reliéfním okrajem inspirovaným francouzskou klasikou. Plastický okraj vrhá jemné stíny, takže talíř působí živě i bez barevného dekoru.'},
+    {id:5, c:'Afina', n:'Šálek na kávu s podšálkem', p:429, r:760, img:31391514, types:['hrnky','kava'], unit:'ks', stock:'in', micro:true, dims:'0,2 l · podšálek Ø 16 cm', rating:4.8, reviews:27,
+      gal:[31391514, 590482, 3958890, 685527], alt:'Bílý šálek kávy s podšálkem v měkkém světle',
+      d:'Elegantní šálek s podšálkem z kolekce Afina. Tenký okraj, příjemná váha v ruce a čistá bílá – na kávu, která si zaslouží chvíli klidu.'},
+    {id:6, c:'Coffee Passion', n:'Espresso šálek s podšálkem, 2 ks', p:549, r:990, img:685527, types:['kava','hrnky'], unit:'bal', stock:'in', tag:'Novinka', micro:true, dims:'šálek 0,1 l · podšálek Ø 12 cm', rating:4.9, reviews:19,
+      gal:[685527, 129207, 997656, 31391514], alt:'Espresso v bílém šálku na tmavém dřevě',
+      d:'Dva espresso šálky s podšálky z kolekce Coffee Passion, navržené tak, aby udržely cremu i teplotu. Pro domácí baristy i jako dárek k nové kávovaru.'},
+    {id:7, c:'Crafted Cotton', n:'Hrnek, talíř a miska – set', p:990, r:1790, img:11065504, types:['sety','misky'], unit:'sada', stock:'in', micro:true, dims:'hrnek 0,35 l · talíř Ø 26 cm · miska Ø 15 cm', rating:4.7, reviews:22,
+      gal:[11065504, 8251778, 6944482, 10816681], alt:'Minimalistický talíř, hrnek a miska s jemně tečkovanou glazurou',
+      d:'Hrnek, talíř a miska s řemeslně působící glazurou. Každodenní porcelán, který vypadá jako z keramické dílny – a přitom zvládne myčku i mikrovlnku.'},
+    {id:8, c:'NewMoon', n:'Miska 13 cm', p:299, r:540, img:6944482, types:['misky'], unit:'ks', stock:'in', micro:true, dims:'Ø 13 cm · 0,3 l', rating:4.8, reviews:41,
+      gal:[6944482, 11065504, 8251778, 7191403], alt:'Bílá miska organického tvaru na kamenné desce',
+      d:'Miska organického tvaru z kolekce NewMoon. Na müsli, polévku i servírování drobností – jednotlivě i jako doplněk k sadě.'},
+    {id:9, c:'For Me', n:'Hrnek 0,4 l, sada 2 ks', p:459, r:820, img:10816681, types:['hrnky'], unit:'bal', stock:'in', micro:true, dims:'0,4 l · výška 10 cm', rating:4.7, reviews:35,
+      gal:[10816681, 590482, 11065504, 22598227], alt:'Naskládané bílé porcelánové hrnky',
+      d:'Dva velké hrnky For Me na ranní kávu i večerní čaj. Jednoduchý válcový tvar, který se dobře drží a krásně se skládá do skříňky.'},
+    {id:10, c:'Clever Baking', n:'Zapékací mísa, sada 3 velikostí', p:1290, r:2290, img:3756655, types:['servirovani'], unit:'sada', stock:'in', tag:'Novinka', micro:true, dims:'32 × 22 · 26 × 18 · 20 × 14 cm', rating:4.8, reviews:16,
+      gal:[3756655, 8251778, 11065504, 7191403], alt:'Tři bílé hranaté zapékací mísy',
+      d:'Tři zapékací mísy, které se vejdou do sebe. Z trouby rovnou na stůl – porcelán Clever Baking snese vysoké teploty i myčku.'},
+    {id:11, c:'Audun Fleur', n:'Konvice na kávu 1,1 l', p:1690, r:2990, img:13008735, types:['servirovani','kava'], unit:'ks', stock:'last', tag:'Poslední kusy', micro:true, dims:'1,1 l · výška 24 cm', rating:4.9, reviews:12,
+      gal:[13008735, 3708498, 18977904, 1543443], alt:'Porcelánová konvice na kávu s květinovým dekorem a šálky',
+      d:'Konvice na kávu s jemným květinovým dekorem. Na víkendové snídaně i odpolední kávu s přáteli – poslední kusy z kolekce.'},
+    {id:12, c:'Artesano Original', n:'Sada misek a talířů, 12 dílů', p:2790, r:4990, img:8251778, types:['sety','misky','talire'], unit:'sada', stock:'in', tag:'Bestseller', micro:true, dims:'4× talíř Ø 27 cm · 4× talíř Ø 22 cm · 4× miska Ø 15 cm', rating:4.9, reviews:47,
+      gal:[8251778, 11065504, 6944482, 14132973], alt:'Bílé talíře a misky na dřevěném stolku',
+      d:'Dvanáctidílná sada talířů a misek pro čtyři osoby. Přírodní tóny a jemná struktura – ideální základ nové domácnosti i svatební dar.'},
+    {id:13, c:'Manufacture', n:'Váza bílá, 2 velikosti', p:890, r:1590, img:8217492, types:['dekorace'], unit:'bal', stock:'in', micro:true, dims:'výška 22 a 16 cm', rating:4.8, reviews:14,
+      gal:[8217492, 5040767, 11507900, 6944482], alt:'Bílé porcelánové vázy se sušenou trávou a svíčkou',
+      d:'Dvě bílé vázy z matného porcelánu v různých výškách. Samostatně vyniknou se suchými květy, spolu tvoří klidnou dvojici na stůl i parapet.'},
+    {id:14, c:'NewMoon', n:'Džbánek a mini vázy', p:690, r:1190, img:5040767, types:['dekorace','servirovani'], unit:'bal', stock:'last', tag:'Poslední kusy', micro:true, dims:'džbánek 0,25 l · vázičky 8–10 cm', rating:4.9, reviews:9,
+      gal:[5040767, 8217492, 11507900, 10816681], alt:'Malé bílé džbánky a vázičky s růžovou snítkou',
+      d:'Džbánek a dvě mini vázičky z kolekce NewMoon. Drobnost, která udělá radost – na mléko ke kávě, nebo na pár lučních květů.'},
+  ];
+  const byId = id => P.find(p => p.id === id);
+  const inType = (p, t) => t === 'vyprodej' ? p.stock === 'last' : p.types.includes(t);
+  const COLLS = [...new Set(P.map(p => p.c))];
+
+  /* ---------- karty ---------- */
+  const priceHTML = (now, rrp) => `<span class="price-now">${fmt(now)}</span><s class="price-rrp"><span class="sr-only">Doporučená cena: </span>${fmt(rrp)}</s><span class="save">−${pct(now, rrp)}${NB}%</span>`;
+  const card = p => `<article class="pcard">
+      <a class="pcard-media" href="#produkt/${p.id}" tabindex="-1" aria-hidden="true">
+        <img src="${IMG(p.img, 600)}" width="600" height="750" loading="lazy" alt="">
+        ${p.tag ? `<span class="pcard-tag">${p.tag}</span>` : ''}
+      </a>
+      <button class="pcard-fav" type="button" aria-label="Přidat do oblíbených: ${esc(p.n)}" aria-pressed="false">${icon('i-heart')}</button>
+      <div class="pcard-body">
+        <p class="pcard-coll">${p.c}</p>
+        <h3 class="pcard-name"><a href="#produkt/${p.id}">${nb(p.n)}</a></h3>
+        <p class="price">${priceHTML(p.p, p.r)}</p>
+        <div class="pcard-foot"><button class="pcard-add" type="button" data-add="${p.id}">${icon('i-bag')}Do košíku<span class="sr-only">: ${esc(p.n)}</span></button></div>
+      </div>
+    </article>`;
+
+  /* ---------- domů ---------- */
+  const HOME = {
+    best:[1, 3, 4, 12, 5, 6, 9, 7],
+    new:[6, 10, 8, 13, 14, 2, 5, 9],
+    u1000:P.filter(p => p.p <= 1000).sort((a, b) => a.p - b.p).slice(0, 8).map(p => p.id),
+  };
+  function renderHome(tab){
+    $('#homeGrid').innerHTML = HOME[tab].map(id => card(byId(id))).join('');
+    $$('[data-htab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.htab === tab)));
+  }
+  $$('[data-count]').forEach(el => { el.textContent = produktu(P.filter(p => inType(p, el.dataset.count)).length); });
+
+  /* ---------- kategorie ---------- */
+  const PRICE = [
+    {v:'u500', l:`Do 500${NB}Kč`, t:p => p.p < 500},
+    {v:'500', l:`500 – 1${NB}000${NB}Kč`, t:p => p.p >= 500 && p.p <= 1000},
+    {v:'1000', l:`1${NB}000 – 2${NB}000${NB}Kč`, t:p => p.p > 1000 && p.p <= 2000},
+    {v:'2000', l:`Nad 2${NB}000${NB}Kč`, t:p => p.p > 2000},
+  ];
+  const STOCK = [{v:'in', l:'Skladem'}, {v:'last', l:'Poslední kusy'}];
+  const GROUPS = {
+    colls:{opts:() => COLLS.map(c => ({v:c, l:c})), test:(p, set) => set.has(p.c)},
+    price:{opts:() => PRICE, test:(p, set) => PRICE.some(r => set.has(r.v) && r.t(p))},
+    stock:{opts:() => STOCK, test:(p, set) => set.has(p.stock)},
+  };
+  const S = {type:'', preset:'', colls:new Set(), price:new Set(), stock:new Set(), sort:'rec', shown:12};
+  const CAT_COPY = {
+    '':['Všechny produkty', 'Celá nabídka originálního porcelánu Villeroy & Boch. Nové kusy přímo z výroby, až o 45 % levněji než doporučená cena.'],
+    talire:['Talíře', 'Jídelní, hluboké i dezertní talíře – od nadčasové bílé po jemné reliéfy a zlaté linky.'],
+    hrnky:['Hrnky a šálky', 'Na ranní kávu, odpolední čaj i jako malý dárek, který potěší.'],
+    misky:['Misky', 'Na snídani, polévku i servírování drobností.'],
+    servirovani:['Servírování', 'Mísy, konvice a džbány, se kterými je každé servírování slavnostní.'],
+    sety:['Jídelní sety', 'Sady, které se hodí jako svatební dar i jako základ nové domácnosti.'],
+    kava:['Káva a čaj', 'Šálky, konvice a snídaňové sady pro pomalá rána.'],
+    dekorace:['Dekorace', 'Vázy a porcelánové drobnosti, které udělají radost.'],
+    vyprodej:['Výprodej', 'Poslední kusy z kolekcí. Až dojdou, už je nedoplníme.'],
+    darky:['Dárky', 'Kousky, které udělají radost. Ke každé objednávce dárkové balení zdarma.'],
+    do1000:['Dárky do 1 000 Kč', 'Malé radosti z originálního porcelánu – a dárkové balení k tomu zdarma.'],
+  };
+  const GIFT_TILE = `<aside class="gift-tile" aria-label="Dárkové balení"><div class="gift-tile-in"><div class="gift-tile-img"><img src="${IMG(11507900, 900)}" width="900" height="1100" loading="lazy" alt="Bílá váza a talíř se sušenými květy na hedvábí"></div>${icon('i-gift', 'ic ic-lg')}<p class="eyebrow">Ke každé objednávce</p><h3>Dárkové balení zdarma</h3><p>Krabice, stuha a přání s vaším vzkazem. Stačí zaškrtnout u produktu nebo v košíku.</p><a class="link-arrow" href="#domu/baleni">Jak balíme ${icon('i-arrow')}</a></div></aside>`;
+
+  function filtered(except){
+    return P.filter(p => (!S.type || inType(p, S.type)) &&
+      Object.keys(GROUPS).every(g => g === except || !S[g].size || GROUPS[g].test(p, S[g])));
+  }
+  function sortList(list){
+    const l = [...list];
+    if (S.sort === 'cheap') l.sort((a, b) => a.p - b.p);
+    else if (S.sort === 'exp') l.sort((a, b) => b.p - a.p);
+    else if (S.sort === 'save') l.sort((a, b) => pct(b.p, b.r) - pct(a.p, a.r));
+    return l;
+  }
+  function renderFilters(){
+    Object.entries(GROUPS).forEach(([g, G]) => {
+      const base = filtered(g);
+      const html = G.opts().map(o => {
+        const n = base.filter(p => G.test(p, new Set([o.v]))).length;
+        const on = S[g].has(o.v);
+        const dis = !n && !on;
+        return `<label class="fopt${dis ? ' is-dis' : ''}"><input type="checkbox" data-g="${g}" value="${esc(o.v)}"${on ? ' checked' : ''}${dis ? ' disabled' : ''}><span class="box">${icon('i-check')}</span><span>${o.l}</span><span class="n">${n}</span></label>`;
+      }).join('');
+      $$(`[data-fgroup="${g}"]`).forEach(el => { el.innerHTML = html; });
+      $$(`[data-fdd="${g}"] .fdd-n`).forEach(el => { el.textContent = S[g].size || ''; });
+    });
+    const total = S.colls.size + S.price.size + S.stock.size;
+    $('#filterBtnCount').textContent = total || '';
+  }
+  function renderCategory(){
+    const key = S.preset || S.type;
+    const [title, intro] = CAT_COPY[key] || CAT_COPY[''];
+    $('#catTitle').textContent = title;
+    $('#crumbCur').textContent = title;
+    $('#catIntro').textContent = intro;
+    const chips = [['', 'Vše', P.length], ...Object.entries(TYPES).map(([k, l]) => [k, l, P.filter(p => inType(p, k)).length])];
+    $('#typeChips').innerHTML = chips.map(([k, l, n]) => `<button type="button" class="tchip" data-type-chip="${k}" aria-pressed="${S.type === k}">${l}<small>${n}</small></button>`).join('');
+    renderFilters();
+
+    const act = [];
+    Object.keys(GROUPS).forEach(g => S[g].forEach(v => {
+      const o = GROUPS[g].opts().find(x => x.v === v);
+      act.push(`<button type="button" class="achip" data-rm-g="${g}" data-rm-v="${esc(v)}">${o ? o.l : v}${icon('i-close')}<span class="sr-only"> – odebrat filtr</span></button>`);
+    }));
+    const ac = $('#activeChips');
+    ac.innerHTML = act.length ? act.join('') + '<button type="button" class="achip-clear" data-clear>Zrušit vše</button>' : '';
+    ac.hidden = !act.length;
+
+    const items = sortList(filtered());
+    const n = items.length;
+    $('#catCount').textContent = produktu(n);
+    $('#fdApply').textContent = `Zobrazit ${produktu(n)}`;
+    const parts = items.slice(0, S.shown).map(card);
+    if (parts.length > 6) parts.splice(6, 0, GIFT_TILE);
+    $('#catGrid').innerHTML = n ? parts.join('') :
+      `<div class="empty"><h3>Takovou kombinaci teď nemáme</h3><p>Zkuste uvolnit některý z filtrů.</p><button class="btn btn-ghost" type="button" data-clear>Zrušit filtry</button></div>`;
+    const shown = Math.min(S.shown, n);
+    $('#catMore').innerHTML = !n ? '' : `<p>Zobrazeno ${shown} z ${n}</p><div class="more-bar" aria-hidden="true"><span style="width:${shown / n * 100}%"></span></div>` +
+      (n > S.shown ? '<button class="btn btn-ghost" type="button" data-more>Načíst další</button>' : '');
+  }
+  function clearFilters(){ S.colls.clear(); S.price.clear(); S.stock.clear(); if (S.preset === 'do1000') S.preset = ''; S.shown = 12; }
+  function applyPreset(arg){
+    clearFilters();
+    S.type = ''; S.preset = ''; S.sort = 'rec';
+    if (TYPES[arg]) S.type = arg;
+    else if (arg === 'do1000'){ S.preset = 'do1000'; S.price.add('u500'); S.price.add('500'); }
+    else if (arg === 'darky') S.preset = 'darky';
+    $('#sortSel').value = 'rec';
+    renderCategory();
+  }
+
+  /* ---------- produkt ---------- */
+  let CUR = 3;
+  const PV = {v:0, q:1, i:0};
+  function variantsOf(p){
+    if (p.unit === 'ks') return [{l:'1 ks', m:1, d:0, u:'ks'}, {l:'6 ks', m:6, d:.05, u:'ks'}];
+    if (p.unit === 'sada') return [{l:'1 sada', m:1, d:0, u:'sada'}, {l:'2 sady', m:2, d:.05, u:'sada'}];
+    return [{l:'1 balení', m:1, d:0, u:'bal.'}, {l:'2 balení', m:2, d:.05, u:'bal.'}];
+  }
+  const vPrice = (p, v) => Math.round(p.p * v.m * (1 - v.d));
+  function renderProduct(id){
+    const p = byId(id) || byId(3);
+    CUR = p.id; PV.v = 0; PV.q = 1; PV.i = 0;
+    const t = p.types[0];
+    $('#pdpCrumbs').innerHTML = `<li><a href="#domu">Domů</a></li><li><a href="#kategorie/${t}">${TYPES[t]}</a></li><li aria-current="page">${p.n}</li>`;
+    $('#pdpColl').textContent = `Villeroy & Boch · ${p.c}`;
+    $('#pdpName').textContent = nb(p.n);
+    $('#pdpDims').textContent = `Prémiový porcelán · ${p.dims}`;
+    $('#pdpRating').innerHTML = `<span class="stars" aria-hidden="true">${icon('i-star', 'ic ic-star').repeat(5)}</span><span>${p.rating.toFixed(1).replace('.', ',')} z 5${NB}·${NB}<span class="u">${p.reviews} hodnocení</span></span>`;
+    $('#galThumbs').innerHTML = p.gal.map((g, i) => `<button type="button" data-thumb="${i}" aria-label="Fotografie ${i + 1} z ${p.gal.length}" aria-current="${i === 0}"><img src="${IMG(g, 200)}" width="200" height="267" alt="" loading="lazy"></button>`).join('');
+    const tag = $('#galTag'); tag.hidden = !p.tag; tag.textContent = p.tag || '';
+    setImg(0);
+    $('#pdpVariants').innerHTML = variantsOf(p).map((v, i) => {
+      const now = vPrice(p, v);
+      const sub = v.m > 1 ? `${fmt(Math.round(now / v.m))} / ${v.u} · −5${NB}% navíc` : fmt(now);
+      return `<button type="button" role="radio" aria-checked="${i === 0}" data-var="${i}"><b>${v.l}</b><span>${sub}</span></button>`;
+    }).join('');
+    updatePrice();
+    const st = $('#pdpStock');
+    st.classList.toggle('is-last', p.stock === 'last');
+    st.innerHTML = `<span class="dot" aria-hidden="true"></span>${p.stock === 'last' ? 'Poslední kusy skladem · odesíláme do 24 hodin' : 'Skladem · odesíláme do 24 hodin'}`;
+    $('#qtyVal').value = 1;
+    $('#giftWrap').checked = false; $('#giftMsg').hidden = true; $('#giftText').value = ''; $('#giftCnt').textContent = '0';
+    const fav = $('#pdpFav'); fav.setAttribute('aria-pressed', 'false'); fav.classList.remove('on');
+    $('#pdpDesc').textContent = p.d;
+    $('#pdpParams').innerHTML = [
+      ['Kolekce', p.c], ['Výrobce', 'Villeroy & Boch'], ['Materiál', 'Prémiový porcelán'], ['Rozměry', p.dims],
+      ['Do myčky', 'Ano'], ['Do mikrovlnné trouby', p.micro ? 'Ano' : 'Ne'], ['Stav', 'Nové, nepoužité zboží'],
+    ].map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
+    setTab('desc');
+    const rel = P.filter(q => q.id !== p.id && q.types.some(x => p.types.includes(x)));
+    const rest = P.filter(q => q.id !== p.id && !rel.includes(q));
+    $('#relGrid').innerHTML = [...rel, ...rest].slice(0, 4).map(card).join('');
+    document.title = `${p.n} – Bílé zlato · návrh 4`;
+  }
+  function setImg(i){
+    const p = byId(CUR);
+    PV.i = (i + p.gal.length) % p.gal.length;
+    const img = $('#galMain img');
+    img.src = IMG(p.gal[PV.i], 1200);
+    img.alt = PV.i === 0 ? p.alt : `${p.c} – ilustrační fotografie ${PV.i + 1}`;
+    $('#galCount').textContent = `${PV.i + 1} / ${p.gal.length}`;
+    $$('#galThumbs button').forEach((b, k) => b.setAttribute('aria-current', String(k === PV.i)));
+  }
+  function updatePrice(){
+    const p = byId(CUR);
+    const v = variantsOf(p)[PV.v];
+    const now = vPrice(p, v);
+    const rrp = p.r * v.m;
+    $('#pdpPrice').textContent = fmt(now);
+    $('#pdpRrp').innerHTML = `<span class="sr-only">Doporučená cena: </span>${fmt(rrp)}`;
+    $('#pdpSave').textContent = `−${pct(p.p, p.r)}${NB}%`;
+    $('#pdpSaving').innerHTML = `Ušetříte <b>${fmt(rrp - now)}</b> oproti doporučené ceně výrobce`;
+    $('#pdpVarNote').textContent = v.m > 1 ? 'Sada je o 5 % výhodnější' : '';
+    $$('#pdpVariants button').forEach((b, k) => b.setAttribute('aria-checked', String(k === PV.v)));
+  }
+  function setTab(k){
+    $$('[data-ptab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.ptab === k)));
+    $$('.ptab-panel').forEach(pn => { pn.hidden = pn.id !== 'p-' + k; });
+  }
+
+  /* ---------- košík ---------- */
+  const CART = [];
+  const FREE = 2000;
+  const cartCount = () => CART.reduce((s, i) => s + i.q, 0);
+  const cartTotal = () => CART.reduce((s, i) => s + i.price * i.q, 0);
+  const NOHIDE = new URLSearchParams(location.search).has('state');
+  let toastTimer;
+  function updateBadge(){
+    const n = cartCount();
+    const b = $('#cartCount');
+    b.textContent = n; b.hidden = !n;
+    $('#cartBtn').setAttribute('aria-label', `Košík, ${n} ${plural(n, 'položka', 'položky', 'položek')}`);
+  }
+  function fillShip(){
+    const total = cartTotal();
+    $('#toastShip').innerHTML = total >= FREE ? '<b>Máte dopravu zdarma.</b>' : `Do dopravy zdarma zbývá <b>${fmt(FREE - total)}</b>`;
+    $('#toastBar').style.width = Math.min(100, total / FREE * 100) + '%';
+  }
+  function showToast(){
+    const t = $('#toast');
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    if (!NOHIDE) toastTimer = setTimeout(hideToast, 5000);
+  }
+  function hideToast(){ $('#toast').classList.remove('show'); }
+  function addToCart(id, vIdx = 0, q = 1){
+    const p = byId(id);
+    const v = variantsOf(p)[vIdx];
+    const price = vPrice(p, v);
+    const ex = CART.find(i => i.id === id && i.v === vIdx);
+    if (ex) ex.q += q; else CART.push({id, v:vIdx, q, price});
+    updateBadge();
+    const t = $('#toast');
+    t.classList.remove('is-empty');
+    $('#toastTitle').textContent = 'Přidáno do košíku';
+    $('#toastImg').src = IMG(p.img, 200);
+    $('#toastName').textContent = p.n;
+    $('#toastMeta').textContent = `${p.c} · ${v.l} · ${q}× ${fmt(price)}`;
+    $('#toastPrice').textContent = fmt(price * q);
+    fillShip();
+    showToast();
+  }
+  function showCart(){
+    const t = $('#toast');
+    if (!CART.length){
+      t.classList.add('is-empty');
+      $('#toastTitle').textContent = 'Košík je zatím prázdný';
+    } else {
+      t.classList.remove('is-empty');
+      const n = cartCount();
+      $('#toastTitle').textContent = `V košíku ${n} ${plural(n, 'položka', 'položky', 'položek')} · ${fmt(cartTotal())}`;
+      fillShip();
+    }
+    showToast();
+  }
+
+  /* ---------- šuplíky ---------- */
+  function openDrawer(id){
+    closeDropdowns();
+    const d = $('#' + id);
+    d.classList.add('open');
+    d.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lock');
+    if (id === 'navDrawer') $('#menuBtn').setAttribute('aria-expanded', 'true');
+    setTimeout(() => { const f = id === 'searchDrawer' ? $('#q') : d.querySelector('.drawer-panel button, .drawer-panel a, .drawer-panel input'); if (f) f.focus({preventScroll:true}); }, 60);
+  }
+  function closeDrawers(){
+    $$('.drawer.open').forEach(d => { d.classList.remove('open'); d.setAttribute('aria-hidden', 'true'); });
+    document.body.classList.remove('lock');
+    $('#menuBtn').setAttribute('aria-expanded', 'false');
+  }
+  function closeDropdowns(){
+    $$('.fdd.open').forEach(x => { x.classList.remove('open'); x.querySelector('.fdd-btn').setAttribute('aria-expanded', 'false'); });
+  }
+
+  /* ---------- router ---------- */
+  const VIEWS = {domu:$('#view-domu'), kategorie:$('#view-kategorie'), produkt:$('#view-produkt')};
+  function route(){
+    const [name, arg] = (location.hash || '#domu').slice(1).split('/');
+    const v = VIEWS[name] ? name : 'domu';
+    closeDrawers(); closeDropdowns();
+    if (v === 'kategorie') applyPreset(arg || '');
+    if (v === 'produkt') renderProduct(arg && byId(+arg) ? +arg : CUR);
+    Object.entries(VIEWS).forEach(([k, el]) => { el.hidden = k !== v; });
+    $$('[data-demo]').forEach(a => a.classList.toggle('on', a.dataset.demo === v));
+    $$('[data-nav]').forEach(a => a.setAttribute('aria-current', String(v === 'kategorie' && a.dataset.nav === (arg || ''))));
+    if (v === 'domu') document.title = 'Bílé zlato – návrh 4 · Malina';
+    if (v === 'kategorie') document.title = `${$('#catTitle').textContent} – Bílé zlato · návrh 4`;
+    const anchor = v === 'domu' && arg && document.getElementById(arg);
+    if (anchor) requestAnimationFrame(() => { const y = anchor.getBoundingClientRect().top + scrollY - 130; scrollTo(0, y); });
+    else scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route);
+
+  /* ---------- události ---------- */
+  document.addEventListener('click', e => {
+    const t = e.target;
+    if (t.closest('.drawer a')) closeDrawers();
+    const add = t.closest('[data-add]');
+    if (add){ addToCart(+add.dataset.add); return; }
+    const fav = t.closest('.pcard-fav, #pdpFav');
+    if (fav){ const on = fav.getAttribute('aria-pressed') !== 'true'; fav.setAttribute('aria-pressed', String(on)); fav.classList.toggle('on', on); return; }
+    const chip = t.closest('[data-type-chip]');
+    if (chip){ S.type = chip.dataset.typeChip; S.preset = ''; S.shown = 12; history.replaceState(null, '', S.type ? '#kategorie/' + S.type : '#kategorie'); renderCategory(); return; }
+    const rm = t.closest('[data-rm-g]');
+    if (rm){ S[rm.dataset.rmG].delete(rm.dataset.rmV); if (rm.dataset.rmG === 'price' && S.preset === 'do1000') S.preset = ''; S.shown = 12; renderCategory(); return; }
+    if (t.closest('[data-clear]') || t.closest('#fdReset')){ clearFilters(); renderCategory(); return; }
+    if (t.closest('[data-more]')){ S.shown += 12; renderCategory(); return; }
+    const fb = t.closest('.fdd-btn');
+    if (fb){ const dd = fb.parentElement; const was = dd.classList.contains('open'); closeDropdowns(); if (!was){ dd.classList.add('open'); fb.setAttribute('aria-expanded', 'true'); } return; }
+    if (!t.closest('.fdd')) closeDropdowns();
+    const ht = t.closest('[data-htab]');
+    if (ht){ renderHome(ht.dataset.htab); return; }
+    const th = t.closest('[data-thumb]');
+    if (th){ setImg(+th.dataset.thumb); return; }
+    if (t.closest('#galPrev')){ setImg(PV.i - 1); return; }
+    if (t.closest('#galNext')){ setImg(PV.i + 1); return; }
+    const vb = t.closest('[data-var]');
+    if (vb){ PV.v = +vb.dataset.var; updatePrice(); return; }
+    if (t.closest('#qtyPlus')){ PV.q = Math.min(99, PV.q + 1); $('#qtyVal').value = PV.q; return; }
+    if (t.closest('#qtyMinus')){ PV.q = Math.max(1, PV.q - 1); $('#qtyVal').value = PV.q; return; }
+    if (t.closest('#addBtn')){ addToCart(CUR, PV.v, PV.q); return; }
+    const pt = t.closest('[data-ptab]');
+    if (pt){ setTab(pt.dataset.ptab); return; }
+    if (t.closest('#menuBtn')){ openDrawer('navDrawer'); return; }
+    if (t.closest('#searchBtn')){ openDrawer('searchDrawer'); return; }
+    if (t.closest('#filterBtn')){ openDrawer('filterDrawer'); return; }
+    if (t.closest('#cartBtn')){ showCart(); return; }
+    if (t.closest('[data-toast-close]')){ hideToast(); return; }
+    if (t.closest('[data-close]')) closeDrawers();
+  });
+  document.addEventListener('change', e => {
+    const t = e.target;
+    if (t.matches('input[data-g]')){
+      const g = t.dataset.g;
+      if (t.checked) S[g].add(t.value); else S[g].delete(t.value);
+      if (g === 'price' && S.preset === 'do1000') S.preset = '';
+      S.shown = 12;
+      const scope = t.closest('#filterDrawer') || t.closest('.fdd');
+      renderCategory();
+      if (scope){ const el = [...scope.querySelectorAll('input[data-g]')].find(i => i.dataset.g === g && i.value === t.value); if (el) el.focus({preventScroll:true}); }
+    }
+    if (t.id === 'sortSel'){ S.sort = t.value; renderCategory(); }
+    if (t.id === 'giftWrap') $('#giftMsg').hidden = !t.checked;
+  });
+  $('#qtyVal').addEventListener('change', e => { const v = parseInt(e.target.value, 10); PV.q = Math.min(99, Math.max(1, isNaN(v) ? 1 : v)); e.target.value = PV.q; });
+  $('#giftText').addEventListener('input', e => { $('#giftCnt').textContent = e.target.value.length; });
+  $('#newsForm').addEventListener('submit', e => { e.preventDefault(); $('#newsOk').hidden = false; e.target.reset(); });
+  $('#searchForm').addEventListener('submit', e => { e.preventDefault(); location.hash = '#kategorie'; });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape'){ closeDrawers(); closeDropdowns(); hideToast(); } });
+  const hdr = $('#hdr');
+  addEventListener('scroll', () => hdr.classList.toggle('is-scrolled', scrollY > 40), {passive:true});
+
+  /* ---------- start ---------- */
+  renderHome('best');
+  route();
+
+  /* ---------- ukázkové stavy a autotest (?state=…, ?selftest) ---------- */
+  const qs = new URLSearchParams(location.search);
+  const st = qs.get('state');
+  if (st === 'menu') openDrawer('navDrawer');
+  if (st === 'search') openDrawer('searchDrawer');
+  if (st === 'filters') openDrawer('filterDrawer');
+  if (st === 'toast') addToCart(3, 0, 1);
+  if (st === 'dd'){ const d = $('[data-fdd="colls"]'); d.classList.add('open'); S.colls.add('Anmut Gold'); S.colls.add('Royal'); renderCategory(); }
+  if (st === 'gift'){ $('#giftWrap').checked = true; $('#giftMsg').hidden = false; $('#giftText').value = 'Ať vám chutná každé ráno. S láskou, Jana'; $('#giftCnt').textContent = $('#giftText').value.length; }
+
+  if (qs.has('selftest')){
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+    const go = async h => { location.hash = h; await wait(120); };
+    const R = [];
+    const ok = (name, cond) => R.push(`${cond ? 'PASS' : 'FAIL'} ${name}`);
+    (async () => {
+      try {
+        await go('#kategorie');
+        ok('kategorie: pohled viditelný', !VIEWS.kategorie.hidden && VIEWS.domu.hidden);
+        ok('kategorie: 12 karet na začátku', $$('#catGrid .pcard').length === 12);
+        ok('kategorie: dárková dlaždice v mřížce', !!$('#catGrid .gift-tile'));
+        $('[data-more]').click(); await wait(30);
+        ok('načíst další → 14 karet', $$('#catGrid .pcard').length === 14);
+        $('[data-type-chip="talire"]').click(); await wait(30);
+        ok('čip Talíře → 4 karty', $$('#catGrid .pcard').length === 4);
+        $('[data-type-chip=""]').click(); await wait(30);
+        $('[data-fdd="colls"] .fdd-btn').click(); await wait(30);
+        ok('dropdown Kolekce se otevře', $('[data-fdd="colls"]').classList.contains('open'));
+        $('[data-fdd="colls"] input[value="Anmut Gold"]').click(); await wait(30);
+        ok('filtr Anmut Gold → 1 karta', $$('#catGrid .pcard').length === 1);
+        ok('aktivní čip filtru zobrazen', $$('#activeChips .achip').length === 1);
+        ok('počet v tlačítku Kolekce = 1', $('[data-fdd="colls"] .fdd-n').textContent === '1');
+        $('#activeChips .achip').click(); await wait(30);
+        ok('odebrání čipu → 12 karet', $$('#catGrid .pcard').length === 12);
+        document.body.click(); await wait(10);
+        ok('klik mimo zavře dropdown', !$('[data-fdd="colls"]').classList.contains('open'));
+        const sel = $('#sortSel'); sel.value = 'cheap'; sel.dispatchEvent(new Event('change', {bubbles:true})); await wait(30);
+        ok('řazení od nejlevnějších → 299 Kč první', $('#catGrid .price-now').textContent.replace(/\s/g, '') === '299Kč');
+        $('#catGrid .pcard-name a').click(); await wait(150);
+        ok('produkt: pohled viditelný', !VIEWS.produkt.hidden && VIEWS.kategorie.hidden);
+        ok('produkt: Miska 13 cm', $('#pdpName').textContent.replace(/\s/g, ' ') === 'Miska 13 cm');
+        const before = $('#galMain img').src;
+        $$('#galThumbs button')[2].click(); await wait(30);
+        ok('náhled přepne hlavní fotku', $('#galMain img').src !== before && $$('#galThumbs button')[2].getAttribute('aria-current') === 'true');
+        $('#galNext').click(); await wait(30);
+        ok('šipka další → 4 / 4', $('#galCount').textContent === '4 / 4');
+        const p0 = $('#pdpPrice').textContent;
+        $$('#pdpVariants button')[1].click(); await wait(30);
+        ok('varianta 6 ks změní cenu (1 704 Kč)', $('#pdpPrice').textContent !== p0 && $('#pdpPrice').textContent.replace(/\s/g, '') === '1704Kč');
+        $('#qtyPlus').click(); await wait(10);
+        ok('množství + → 2', $('#qtyVal').value === '2');
+        $('#addBtn').click(); await wait(60);
+        ok('košík: odznak = 2', $('#cartCount').textContent === '2' && !$('#cartCount').hidden);
+        ok('košík: toast zobrazen', $('#toast').classList.contains('show'));
+        $('[data-add]').click(); await wait(30);
+        ok('rychlé přidání z karty → odznak 3', $('#cartCount').textContent === '3');
+        $('#giftWrap').click(); await wait(20);
+        ok('dárek: pole pro vzkaz se zobrazí', !$('#giftMsg').hidden);
+        $$('[data-ptab]')[1].click(); await wait(20);
+        ok('záložka Parametry', !$('#p-par').hidden && $('#p-desc').hidden);
+        $('#menuBtn').click(); await wait(60);
+        ok('mobilní menu se otevře', $('#navDrawer').classList.contains('open'));
+        $('#navDrawer .drawer-scrim').click(); await wait(30);
+        ok('mobilní menu se zavře', !$('#navDrawer').classList.contains('open'));
+        await go('#kategorie');
+        $('#filterBtn').click(); await wait(60);
+        ok('šuplík s filtry se otevře', $('#filterDrawer').classList.contains('open'));
+        $('#filterDrawer input[value="last"]').click(); await wait(30);
+        ok('filtr v šuplíku: Poslední kusy → 3', $$('#catGrid .pcard').length === 3 && $('#fdApply').textContent.includes('3'));
+        $('#fdApply').click(); await wait(40);
+        ok('tlačítko Zobrazit zavře šuplík', !$('#filterDrawer').classList.contains('open'));
+        await go('#domu');
+        $('[data-htab="u1000"]').click(); await wait(20);
+        ok('domů: záložka Do 1 000 Kč', $$('#homeGrid .pcard').length === 8 && [...$$('#homeGrid .price-now')].every(el => parseInt(el.textContent.replace(/\D/g, ''), 10) <= 1000));
+        await go('#produkt');
+        ok('pilulka Produkt zobrazí poslední produkt', !VIEWS.produkt.hidden && $('#pdpName').textContent.replace(/\s/g, ' ') === 'Miska 13 cm');
+      } catch (err){ R.push('FAIL výjimka: ' + err.message); }
+      const out = document.createElement('pre');
+      out.id = 'selftest';
+      out.textContent = 'SELFTEST\n' + R.join('\n');
+      document.body.appendChild(out);
+      document.title = 'SELFTEST ' + (R.some(r => r.startsWith('FAIL')) ? 'FAIL' : 'OK');
+    })();
+  }
+})();
+</script>
+</body>
+</html>

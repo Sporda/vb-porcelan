@@ -1,0 +1,7 @@
+.DS_Store
+# lajky (SQLite + tajný klíč) – vznikají při lokálním `php -S`, na serveru leží mimo web
+data/
+# pracovní soubory skillu taste (kontroly, screenshoty, Chrome profil)
+.taste-skill/
+shots/
+node_modules/

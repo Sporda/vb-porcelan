@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Návrhy e-shopu · Bílé zlato</title>
+<meta name="description" content="Přehled návrhů e-shopu s originálním porcelánem Villeroy & Boch – prohlédněte si je a dejte vědět, který se vám líbí.">
+<meta name="theme-color" content="#f4f2ee">
+<meta name="color-scheme" content="light only">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f2ee;
+    --card: #ffffff;
+    --soft: #ebe8e2;
+    --line: #e2ded6;
+    --line-2: #d3cec4;
+    --ink: #1d1b18;
+    --muted: #625e56;
+    --heart: #b8283f;
+    --heart-bg: #fbe9ec;
+    --r: 18px;
+    --shadow: 0 1px 2px rgba(29, 27, 24, .05), 0 16px 36px -22px rgba(29, 27, 24, .30);
+    --shadow-lg: 0 2px 6px rgba(29, 27, 24, .06), 0 30px 60px -28px rgba(29, 27, 24, .38);
+    --serif: "Newsreader", Georgia, serif;
+    --sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --ease: cubic-bezier(.2, .7, .2, 1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; height: auto; display: block; }
+  ul { list-style: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 8px; }
+  [hidden] { display: none !important; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  svg.ic { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- top ---------- */
+  .top { padding: 56px 0 36px; }
+  .brand { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+  .brand b { font: 500 24px/1 var(--serif); letter-spacing: -.01em; }
+  .brand b i { font-style: italic; color: #8a6a3a; }
+  .brand span { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  .eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+  h1 { margin-top: 16px; font: 400 clamp(40px, 6vw, 72px)/1.02 var(--serif); letter-spacing: -.02em; }
+  h1 em { font-style: italic; color: var(--heart); }
+  .lead { margin-top: 20px; max-width: 60ch; font-size: 18px; color: var(--muted); }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 28px; font-size: 14px; color: var(--muted); }
+  .facts li { display: inline-flex; align-items: center; gap: 8px; }
+  .facts b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- toolbar ---------- */
+  .bar { position: sticky; top: 0; z-index: 30; background: rgba(244, 242, 238, .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+  .bar.stuck { border-bottom-color: var(--line); }
+  .bar-in { display: flex; align-items: center; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
+  .seg { display: inline-flex; padding: 4px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; }
+  .seg button { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 16px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--muted); transition: background-color .2s var(--ease), color .2s var(--ease); }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  .jump { display: flex; gap: 4px; }
+  .jump a { padding: 8px 12px; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--muted); transition: background-color .2s, color .2s; }
+  .jump a:hover { background: var(--soft); color: var(--ink); }
+  .mine { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); white-space: nowrap; }
+  .mine svg { width: 16px; height: 16px; fill: var(--heart); }
+  .mine b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- notes & board ---------- */
+  .note { display: flex; gap: 12px; align-items: flex-start; margin-top: 24px; padding: 14px 18px; background: #fff8e8; border: 1px solid #ecd9a8; border-radius: 14px; font-size: 14px; color: #5c4a1c; }
+  .note svg { margin-top: 2px; }
+  .board { margin-top: 24px; padding: 20px 22px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); }
+  .board h2 { display: flex; align-items: center; gap: 10px; font: 500 20px/1.2 var(--serif); }
+  .board h2 svg { width: 18px; height: 18px; fill: var(--heart); }
+  .board ol { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; list-style: none; }
+  .board a { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; transition: border-color .2s, background-color .2s; }
+  .board a:hover { border-color: var(--line-2); background: var(--bg); }
+  .board .rk { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--soft); font-size: 12px; font-weight: 700; }
+  .board li:first-child .rk { background: var(--ink); color: #fff; }
+  .board .dots { display: inline-flex; }
+  .board .dots i { width: 12px; height: 12px; border-radius: 50%; margin-left: -3px; box-shadow: 0 0 0 2px #fff; }
+  .board .cnt { display: inline-flex; align-items: center; gap: 4px; color: var(--heart); font-weight: 600; }
+  .board .cnt svg { width: 13px; height: 13px; fill: currentColor; }
+
+  /* ---------- rounds ---------- */
+  .round { padding: 64px 0 8px; }
+  .round-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px 48px; align-items: end; margin-bottom: 28px; }
+  .round-head h2 { margin-top: 10px; font: 400 clamp(30px, 3.6vw, 44px)/1.08 var(--serif); letter-spacing: -.015em; }
+  .round-head h2 em { font-style: italic; }
+  .round-head p { color: var(--muted); max-width: 52ch; }
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+
+  /* ---------- card ---------- */
+  .card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow); transition: box-shadow .25s var(--ease), transform .25s var(--ease); }
+  .card:hover { box-shadow: var(--shadow-lg); }
+  .shot { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--soft); border-bottom: 1px solid var(--line); }
+  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .5s var(--ease); }
+  .shot .shot-m { display: none; }
+  .card:hover .shot img { transform: scale(1.02); }
+  .num { position: absolute; z-index: 2; top: 12px; left: 12px; display: grid; place-items: center; min-width: 36px; height: 28px; padding: 0 10px; border-radius: 999px; background: rgba(255, 255, 255, .94); font-size: 12px; font-weight: 700; letter-spacing: .06em; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); }
+  .open-hint { position: absolute; z-index: 2; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; background: rgba(29, 27, 24, .86); color: #fff; font-size: 13px; font-weight: 600; opacity: 0; transform: translateY(4px); transition: opacity .2s var(--ease), transform .2s var(--ease); }
+  .card:hover .open-hint, .shot:focus-visible .open-hint { opacity: 1; transform: none; }
+
+  body.view-m .shot { aspect-ratio: 1 / 1.08; background: var(--tint, var(--soft)); }
+  body.view-m .shot .shot-d { display: none; }
+  body.view-m .shot .shot-m { display: block; position: absolute; left: 50%; top: 7%; width: auto; height: 93%; transform: translateX(-50%); border-radius: 22px 22px 0 0; box-shadow: 0 0 0 6px #1d1b18, 0 24px 50px -20px rgba(0, 0, 0, .45); object-fit: cover; }
+  body.view-m .card:hover .shot img { transform: translateX(-50%); }
+
+  .body { display: flex; flex-direction: column; flex: 1; padding: 20px 22px 22px; }
+  .head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+  .kicker { font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .card h3 { margin-top: 4px; font: 500 28px/1.1 var(--serif); letter-spacing: -.01em; }
+  .desc { margin-top: 10px; font-size: 15px; color: var(--muted); }
+  .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 16px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+  .sw { display: inline-flex; gap: 4px; }
+  .sw li { width: 22px; height: 22px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .1); }
+  .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 18px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; background: var(--ink); color: #fff; font-size: 14px; font-weight: 600; transition: background-color .2s; }
+  .btn:hover { background: #3a3631; }
+  .btn svg { width: 16px; height: 16px; }
+  .lnk { display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--muted); transition: background-color .2s, color .2s; }
+  .lnk:hover { background: var(--soft); color: var(--ink); }
+  .head-r { display: flex; align-items: center; gap: 4px; flex: none; }
+  .icon-btn { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: var(--muted); transition: background-color .2s, color .2s; }
+  .icon-btn:hover { background: var(--soft); color: var(--ink); }
+  .icon-btn.copied { color: #2f7a4f; }
+
+  /* like */
+  .like { display: inline-flex; align-items: center; gap: 8px; flex: none; height: 44px; padding: 0 16px 0 14px; border: 1px solid var(--line-2); border-radius: 999px; background: var(--card); font-size: 15px; font-weight: 700; color: var(--ink); transition: background-color .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease); }
+  .like svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; transition: fill .2s, stroke .2s; }
+  .like:hover { border-color: var(--heart); color: var(--heart); }
+  .like[aria-pressed="true"] { background: var(--heart-bg); border-color: var(--heart); color: var(--heart); }
+  .like[aria-pressed="true"] svg { fill: var(--heart); stroke: var(--heart); }
+  .like.pop svg { animation: pop .28s var(--ease); }
+  .like:disabled { cursor: progress; }
+  @keyframes pop { 0% { transform: scale(1); } 45% { transform: scale(1.28); } 100% { transform: scale(1); } }
+
+  /* ---------- footer, toast ---------- */
+  .foot { margin-top: 80px; padding: 28px 0 48px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+  .foot-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+  .foot a { text-decoration: underline; text-underline-offset: 3px; }
+  .toast { position: fixed; z-index: 50; left: 50%; bottom: 24px; transform: translate(-50%, 12px); max-width: calc(100vw - 32px); padding: 12px 18px; border-radius: 12px; background: var(--ink); color: #fff; font-size: 14px; box-shadow: var(--shadow-lg); opacity: 0; pointer-events: none; transition: opacity .2s var(--ease), transform .2s var(--ease); }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (hover: none) { .open-hint { opacity: 1; transform: none; } }
+  @media (max-width: 1080px) {
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .wrap { padding: 0 16px; }
+    .top { padding: 32px 0 24px; }
+    .brand { margin-bottom: 28px; }
+    .lead { font-size: 16px; }
+    .round { padding-top: 44px; }
+    .round-head { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: 1fr; gap: 18px; }
+    .jump { display: none; }
+    .seg button { padding: 0 14px; }
+    .body { padding: 18px 18px 20px; }
+    body.view-m .shot { aspect-ratio: 1 / 1.15; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.5 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.5 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></symbol>
+  <symbol id="i-desktop" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><b>Bílé <i>zlato</i></b><span>Návrhy e-shopu</span></div>
+    <span class="eyebrow">Originální porcelán Villeroy &amp; Boch</span>
+    <h1>Který návrh se vám <em>líbí</em>?</h1>
+    <p class="lead">Šest návrhů e-shopu ve dvou kolech. Každý ukazuje úvodní stránku, kategorii a&nbsp;detail produktu. Klikněte na náhled a&nbsp;projděte si ho, srdíčkem dejte vědět, který se vám líbí – klidně i&nbsp;víc.</p>
+    <ul class="facts">
+      <li><b>6</b> návrhů</li>
+      <li><b>3</b> stránky v každém</li>
+      <li>Fotografie, ceny i&nbsp;název jsou zatím ilustrační</li>
+    </ul>
+  </div>
+</header>
+
+<div class="bar" id="bar">
+  <div class="wrap bar-in">
+    <div class="seg" role="group" aria-label="Náhledy">
+      <button type="button" data-view="d" aria-pressed="true"><svg class="ic"><use href="#i-desktop"/></svg>Počítač</button>
+      <button type="button" data-view="m" aria-pressed="false"><svg class="ic"><use href="#i-phone"/></svg>Mobil</button>
+    </div>
+    <nav class="jump" aria-label="Kola návrhů">
+      <a href="#kolo-2">Kolo 2</a>
+      <a href="#kolo-1">Kolo 1</a>
+    </nav>
+    <p class="mine" id="mine" hidden><svg aria-hidden="true"><use href="#i-heart"/></svg><span>Líbí se vám <b id="mine-n">0</b> z&nbsp;<span id="mine-of">6</span></span></p>
+  </div>
+</div>
+<div id="sentinel" aria-hidden="true"></div>
+
+<main class="wrap">
+  <p class="note" id="local-note" hidden><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>Lajky se teď ukládají jen v&nbsp;tomto prohlížeči. Společné hlasování začne fungovat, až bude stránka na serveru s&nbsp;PHP.</span></p>
+
+  <section class="board" id="board" hidden aria-labelledby="board-h">
+    <h2 id="board-h"><svg aria-hidden="true"><use href="#i-heart"/></svg>Nejvíc se líbí</h2>
+    <ol id="board-list"></ol>
+  </section>
+
+  <section class="round" id="kolo-2" aria-labelledby="kolo-2-h">
+    <div class="round-head">
+      <div>
+        <span class="eyebrow">Kolo 2</span>
+        <h2 id="kolo-2-h">Nové palety: <em>Malina, Laguna, Olivový háj</em></h2>
+      </div>
+      <p>Barevné kombinace z&nbsp;Colorhuntu, každá s&nbsp;jiným rozvržením – romantický dárkový butik, moderní skandinávský styl a&nbsp;klidný lookbook s&nbsp;prostřeným stolem.</p>
+    </div>
+    <div class="grid" data-round="2"></div>
+  </section>
+
+  <section class="round" id="kolo-1" aria-labelledby="kolo-1-h">
+    <div class="round-head">
+      <div>
+        <span class="eyebrow">Kolo 1</span>
+        <h2 id="kolo-1-h">První návrhy: <em>Šalvěj, Bordó, Káva</em></h2>
+      </div>
+      <p>Šalvějová a&nbsp;vínová paleta, které se vám líbily, a&nbsp;nová kávová. Všechny tři prémiové, liší se rozvržením: magazín, katalog a&nbsp;velké fotografie.</p>
+    </div>
+    <div class="grid" data-round="1"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>Bílé zlato je pracovní název. Villeroy &amp; Boch je ochranná známka svého vlastníka. Ilustrační fotografie: Pexels.</p>
+    <p>Návrhy připravil <a href="https://webtitan.cz" target="_blank" rel="noopener">WebTitan</a></p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  // Nový návrh = přidat řádek sem a číslo do DESIGNS v api/likes.php
+  var DESIGNS = [
+    { n: 4, round: 2, name: "Malina", kicker: "Dárkový butik", tint: "#f2dace",
+      desc: "Souměrný a romantický: fotky v obloukových rámech, dárky podle příležitosti a balení jako dárek přímo u produktu.",
+      colors: ["#7c0e44", "#aa5e7a", "#d49a9a", "#f2dace"], fonts: "Gilda Display + Figtree" },
+    { n: 5, round: 2, name: "Laguna", kicker: "Severský styl", tint: "#e2eeeb",
+      desc: "Moderní a vzdušný: úvod rozdělený na barevný blok a fotku, mřížka barevných dlaždic a posuvné řady produktů.",
+      colors: ["#194350", "#ff8882", "#ffc2b4", "#9dbeb8"], fonts: "Schibsted Grotesk + Instrument Serif" },
+    { n: 6, round: 2, name: "Olivový háj", kicker: "Lookbook", tint: "#e6e9d6",
+      desc: "Přírodní a klidný: fotka prostřeného stolu s klikacími body, ze které jde koupit celé prostírání jedním kliknutím.",
+      colors: ["#5f6f52", "#a9b388", "#fefae0", "#b99470"], fonts: "Newsreader + Figtree" },
+    { n: 1, round: 1, name: "Šalvěj", kicker: "Magazín", tint: "#dde4d6",
+      desc: "Jako časopis o bydlení: nesouměrný úvod s překrývajícími se fotkami, číslované sekce a hodně vzduchu.",
+      colors: ["#dde4d6", "#f6f8f2", "#24282b", "#a8834a"], fonts: "EB Garamond + Jost" },
+    { n: 2, round: 1, name: "Bordó", kicker: "Katalog", tint: "#efe7e3",
+      desc: "Přehledný katalog: plné menu kategorií, výrazný vínový úvod a silná stránka kategorie s filtry.",
+      colors: ["#fbf9f7", "#561b29", "#3a0f1c", "#c9a96e"], fonts: "Bodoni Moda + Manrope" },
+    { n: 3, round: 1, name: "Káva", kicker: "Velké fotky", tint: "#ecdfcd",
+      desc: "Postavený na fotkách: tmavý espresso úvod přes celou šířku, mozaika kategorií a posuvná řada kolekcí.",
+      colors: ["#f8f3ec", "#c8a888", "#241913", "#b5703f"], fonts: "Fraunces + DM Sans" }
+  ];
+  var byN = {};
+  DESIGNS.forEach(function (d) { byN[d.n] = d; });
+
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function cz(n, one, few, many) { return n === 1 ? one : (n >= 2 && n <= 4 ? few : many); }
+
+  // ---------- cards ----------
+  var firstRound = true;
+  [2, 1].forEach(function (r) {
+    var grid = document.querySelector('.grid[data-round="' + r + '"]');
+    grid.innerHTML = DESIGNS.filter(function (d) { return d.round === r; }).map(function (d) {
+      var href = "design" + d.n + ".html";
+      var load = firstRound ? "eager" : "lazy";
+      return '<article class="card" id="navrh-' + d.n + '" style="--tint:' + d.tint + '">' +
+        '<a class="shot" href="' + href + '" aria-label="Otevřít návrh ' + d.n + ' – ' + esc(d.name) + '">' +
+          '<span class="num">' + pad(d.n) + '</span>' +
+          '<img class="shot-d" src="previews/d' + d.n + '-desktop.jpg" width="1200" height="750" alt="Náhled návrhu ' + d.n + ' na počítači" loading="' + load + '" decoding="async">' +
+          '<img class="shot-m" src="previews/d' + d.n + '-mobile.jpg" width="520" height="1125" alt="Náhled návrhu ' + d.n + ' na mobilu" loading="lazy" decoding="async">' +
+          '<span class="open-hint">Otevřít <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span>' +
+        '</a>' +
+        '<div class="body">' +
+          '<div class="head">' +
+            '<div><p class="kicker">Návrh ' + d.n + ' · ' + esc(d.kicker) + '</p><h3>' + esc(d.name) + '</h3></div>' +
+            '<div class="head-r">' +
+              '<button type="button" class="icon-btn js-copy" data-href="' + href + '" aria-label="Kopírovat odkaz na návrh ' + d.n + '" title="Kopírovat odkaz"><svg class="ic" aria-hidden="true"><use href="#i-link"/></svg></button>' +
+              '<button type="button" class="like" data-d="' + d.n + '" aria-pressed="false">' +
+                '<svg aria-hidden="true"><use href="#i-heart"/></svg><span class="n" aria-hidden="true">0</span>' +
+                '<span class="sr-only">Líbí se mi návrh ' + d.n + ' – ' + esc(d.name) + '</span>' +
+              '</button>' +
+            '</div>' +
+          '</div>' +
+          '<p class="desc">' + esc(d.desc) + '</p>' +
+          '<div class="meta">' +
+            '<ul class="sw" aria-label="Barevná paleta">' + d.colors.map(function (c) { return '<li style="background:' + c + '" title="' + c + '"></li>'; }).join("") + '</ul>' +
+            '<span>' + esc(d.fonts) + '</span>' +
+          '</div>' +
+          '<div class="actions">' +
+            '<a class="btn" href="' + href + '">Otevřít návrh <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>' +
+            '<a class="lnk" href="' + href + '#kategorie">Kategorie</a>' +
+            '<a class="lnk" href="' + href + '#produkt">Produkt</a>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }).join("");
+    firstRound = false;
+  });
+  document.getElementById("mine-of").textContent = DESIGNS.length;
+
+  // ---------- toast ----------
+  var toast = document.getElementById("toast"), tt;
+  function say(msg) {
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(tt);
+    tt = setTimeout(function () { toast.classList.remove("show"); }, 2400);
+  }
+
+  // ---------- view toggle (remembered per browser) ----------
+  var VIEW_KEY = "vb-hub-view";
+  var segBtns = document.querySelectorAll(".seg button");
+  function setView(v) {
+    document.body.classList.toggle("view-m", v === "m");
+    segBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.view === v)); });
+  }
+  segBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      setView(b.dataset.view);
+      try { localStorage.setItem(VIEW_KEY, b.dataset.view); } catch (e) {}
+    });
+  });
+  try { var saved = localStorage.getItem(VIEW_KEY); if (saved === "m" || saved === "d") setView(saved); } catch (e) {}
+
+  // sticky bar border
+  if ("IntersectionObserver" in window) {
+    var bar = document.getElementById("bar");
+    new IntersectionObserver(function (es) { bar.classList.toggle("stuck", !es[0].isIntersecting); })
+      .observe(document.getElementById("sentinel"));
+  }
+
+  // ---------- copy link ----------
+  function abs(href) { return new URL(href, location.href).href; }
+  function fallbackCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta); return ok;
+  }
+  document.querySelectorAll(".js-copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var url = abs(btn.dataset.href);
+      var done = function () {
+        btn.classList.add("copied"); say("Odkaz zkopírován");
+        setTimeout(function () { btn.classList.remove("copied"); }, 1600);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(done, function () { fallbackCopy(url) ? done() : window.prompt("Zkopírujte odkaz:", url); });
+      } else if (fallbackCopy(url)) { done(); } else { window.prompt("Zkopírujte odkaz:", url); }
+    });
+  });
+
+  // ---------- likes ----------
+  // Na serveru: api/likes.php (jeden návštěvník = jeden lajk na návrh, hlídá server).
+  // Bez serveru (otevřeno z disku): lajky jen v tomto prohlížeči.
+  var API = "api/likes.php";
+  var LOCAL_KEY = "vb-hub-likes";
+  var MSG = {
+    ip_cap: "Z této sítě už tento návrh lajklo víc lidí.",
+    rate: "Moc kliknutí najednou, zkuste to za chvíli.",
+    other: "Lajk se nepodařilo uložit, zkuste to znovu."
+  };
+  var mode = "pending";
+  var state = { counts: {}, mine: [] };
+  var likeBtns = document.querySelectorAll(".like");
+
+  function readLocal() {
+    try {
+      var v = JSON.parse(localStorage.getItem(LOCAL_KEY) || "[]");
+      return Array.isArray(v) ? v.filter(function (d) { return byN[d]; }) : [];
+    } catch (e) { return []; }
+  }
+  function writeLocal(mine) { try { localStorage.setItem(LOCAL_KEY, JSON.stringify(mine)); } catch (e) {} }
+  function localState() {
+    var mine = readLocal(), counts = {};
+    DESIGNS.forEach(function (d) { counts[d.n] = mine.indexOf(d.n) > -1 ? 1 : 0; });
+    return { counts: counts, mine: mine };
+  }
+
+  function apply(data) {
+    if (data && data.counts) state.counts = data.counts;
+    if (data && Array.isArray(data.mine)) state.mine = data.mine.map(Number);
+  }
+
+  function render() {
+    likeBtns.forEach(function (b) {
+      var d = Number(b.dataset.d);
+      var on = state.mine.indexOf(d) > -1;
+      var n = Number(state.counts[d] || 0);
+      b.setAttribute("aria-pressed", String(on));
+      b.querySelector(".n").textContent = n;
+      b.title = n + " " + cz(n, "lajk", "lajky", "lajků");
+    });
+    // my likes
+    var mineBox = document.getElementById("mine");
+    document.getElementById("mine-n").textContent = state.mine.length;
+    mineBox.hidden = state.mine.length === 0;
+    // board
+    var top = Object.keys(state.counts)
+      .map(Number)
+      .filter(function (d) { return byN[d] && state.counts[d] > 0; })
+      .sort(function (a, b) { return state.counts[b] - state.counts[a] || a - b; })
+      .slice(0, 6);
+    var board = document.getElementById("board");
+    board.hidden = top.length === 0;
+    document.getElementById("board-list").innerHTML = top.map(function (d, i) {
+      var x = byN[d], n = state.counts[d];
+      return '<li><a href="#navrh-' + d + '">' +
+        '<span class="rk">' + (i + 1) + '</span>' +
+        '<span class="dots" aria-hidden="true">' + x.colors.map(function (c) { return '<i style="background:' + c + '"></i>'; }).join("") + '</span>' +
+        '<span><b>' + esc(x.name) + '</b> · návrh ' + d + '</span>' +
+        '<span class="cnt"><svg aria-hidden="true"><use href="#i-heart"/></svg>' + n + '<span class="sr-only"> ' + cz(n, "lajk", "lajky", "lajků") + '</span></span>' +
+      '</a></li>';
+    }).join("");
+  }
+
+  function useLocal() {
+    mode = "local";
+    apply(localState());
+    document.getElementById("local-note").hidden = false;
+    render();
+  }
+
+  if (location.protocol === "file:") {
+    useLocal();
+  } else {
+    fetch(API, { credentials: "same-origin", cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (data) {
+        if (!data || typeof data.counts !== "object") throw new Error("bad");
+        mode = "server"; apply(data); render();
+      })
+      .catch(useLocal);
+  }
+
+  likeBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (mode === "pending") return;
+      var d = Number(b.dataset.d);
+      var wasOn = state.mine.indexOf(d) > -1;
+      var prev = { counts: Object.assign({}, state.counts), mine: state.mine.slice() };
+
+      // optimistic update
+      state.counts[d] = Math.max(0, Number(state.counts[d] || 0) + (wasOn ? -1 : 1));
+      state.mine = wasOn ? state.mine.filter(function (x) { return x !== d; }) : state.mine.concat(d);
+      render();
+      if (!wasOn) {
+        b.classList.add("pop");
+        setTimeout(function () { b.classList.remove("pop"); }, 300);
+        say("Díky! " + byN[d].name + " se vám líbí.");
+      }
+
+      if (mode === "local") { writeLocal(state.mine); return; }
+
+      b.disabled = true;
+      fetch(API, {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ design: d, liked: !wasOn })
+      })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (res.ok) { apply(res.j); render(); return; }
+          if (res.j && res.j.counts) apply(res.j); else state = prev;
+          render();
+          say(MSG[res.j && res.j.error] || MSG.other);
+        })
+        .catch(function () { state = prev; render(); say(MSG.other); })
+        .then(function () { b.disabled = false; });
+    });
+  });
+})();
+</script>
+</body>
+</html>
