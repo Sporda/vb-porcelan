@@ -81,6 +81,7 @@ def main():
     # 1) složky (po jedné úrovni; 409 = už existuje)
     dirs = [REMOTE_WEB, REMOTE_DESIGN, REMOTE_DATA]
     for root, subdirs, _ in os.walk(LOCAL_DESIGN):
+        subdirs[:] = [s for s in subdirs if not s.startswith(".")]  # .taste-skill/ apod. jen lokálně
         for s in sorted(subdirs):
             rel = os.path.relpath(os.path.join(root, s), LOCAL_DESIGN)
             dirs.append(REMOTE_DESIGN + "/" + rel.replace(os.sep, "/"))
@@ -111,9 +112,10 @@ def main():
     uploads = []
     for name, content in ROOT_FILES.items():
         uploads.append((REMOTE_WEB + "/" + name, content.encode()))
-    for root, _, files in os.walk(LOCAL_DESIGN):
+    for root, subdirs, files in os.walk(LOCAL_DESIGN):
+        subdirs[:] = [s for s in subdirs if not s.startswith(".")]
         for f in sorted(files):
-            if f in SKIP:
+            if f in SKIP or f.startswith("."):
                 continue
             local = os.path.join(root, f)
             rel = os.path.relpath(local, LOCAL_DESIGN).replace(os.sep, "/")
