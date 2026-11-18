@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Nahraje návrhy (složku design/) na https://vb-porcelan.webtitan.cz/design/
+"""HISTORICKÉ – už se nepoužívá. Od 18. 11. 2026 běží na vb-porcelan.webtitan.cz e-shop (eshop/, nasazení
+z GitHubu přes panel, viz README.md). Návrhy v design/ zůstávají jen jako historie vývoje.
+
+Nahraje návrhy (složku design/) na https://vb-porcelan.webtitan.cz/design/
 
 Použití:  python3 scripts/deploy-design.py [--dry-run]
 
