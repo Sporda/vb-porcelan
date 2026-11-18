@@ -2,24 +2,21 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+/**
+ * Spouští se při každém nasazení (php artisan db:seed --force, bez dev balíčků – žádné factories ani Faker).
+ * Každý seeder je idempotentní: jen doplní, co chybí, nic nepřepíše ani nesmaže.
+ * Bez WithoutModelEvents – Product::saving() plní search_text pro vyhledávání.
+ */
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call(CatalogSeeder::class);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        if (class_exists(AdminUserSeeder::class)) {
+            $this->call(AdminUserSeeder::class);
+        }
     }
 }
