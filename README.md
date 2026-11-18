@@ -4,7 +4,7 @@ E-shop s novým originálním porcelánem Villeroy & Boch za ceny pod doporučen
 Pracovní název obchodu **Bílé zlato**. Běží na <https://vb-porcelan.webtitan.cz>.
 
 Demo: objednávka se neplatí, na konci se odešle **nezávazná poptávka** (uloží se do databáze a e-mailem jde na
-`INQUIRY_TO`, zatím kontakt@webtitan.cz). Platby (Stripe) přijdou později.
+`INQUIRY_TO`, zatím jan@webtitan.cz). Platby (Stripe) přijdou později.
 
 ## Struktura
 

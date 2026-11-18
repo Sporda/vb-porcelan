@@ -15,7 +15,7 @@ return [
     'indexable' => (bool) env('SHOP_INDEXABLE', false),
 
     // Kam chodí poptávky (kopie e-mailem). Odpověď na e-mail jde rovnou zákazníkovi (reply-to).
-    'inquiry_to' => env('INQUIRY_TO', 'kontakt@webtitan.cz'),
+    'inquiry_to' => env('INQUIRY_TO', 'jan@webtitan.cz'),
 
     // Prefix čísla poptávky: VB-2026-0001
     'inquiry_prefix' => env('INQUIRY_PREFIX', 'VB'),
@@ -40,7 +40,7 @@ return [
 
     // Kontakt provozovatele (demo – doplní klient)
     'contact' => [
-        'email' => env('SHOP_CONTACT_EMAIL', 'kontakt@webtitan.cz'),
+        'email' => env('SHOP_CONTACT_EMAIL', 'jan@webtitan.cz'),
         'phone' => env('SHOP_CONTACT_PHONE', ''),
         'address' => 'Praha',
         'hours' => 'Po–Pá 9–17',
