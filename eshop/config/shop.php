@@ -31,6 +31,13 @@ return [
         'osobne' => ['label' => 'Osobní odběr – Praha', 'price' => 0, 'type' => 'store', 'eta' => 'do 24 hodin'],
     ],
 
+    // První účet do administrace – AdminUserSeeder ho založí, jen když ještě neexistuje (heslo nikdy nepřepíše).
+    'admin' => [
+        'email' => env('ADMIN_EMAIL'),
+        'name' => env('ADMIN_NAME', 'Administrátor'),
+        'password' => env('ADMIN_PASSWORD'),
+    ],
+
     // Kontakt provozovatele (demo – doplní klient)
     'contact' => [
         'email' => env('SHOP_CONTACT_EMAIL', 'kontakt@webtitan.cz'),
